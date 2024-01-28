@@ -1,0 +1,22 @@
+
+/*fixes all dataTable drop down select*/
+.dataTables_length select {
+    min-width: 4.5rem;
+    margin: 0 .8rem;
+}
+
+.main-spinner {
+    /*height: 80vh;*/
+    color: blue;
+}
+
+#vue-app {
+    font-size: .8rem;
+}
+
+/* large screens */
+@media (min-width: 992px) {
+    #vue-app {
+        font-size: 1rem;
+    }
+}
