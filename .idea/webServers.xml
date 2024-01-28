@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4a1916e7-cecf-48fc-8c9f-257a72c10c9a" name="encompass-online.com" url="https://encompass-online.com">
+        <fileTransfer rootFolder="/var/www/encompass-online.com" accessType="SFTP" host="live-servers" port="22" sshConfigId="759f271d-b009-4190-8d38-7509ed901ce6" sshConfig="ubuntu@live-servers:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
