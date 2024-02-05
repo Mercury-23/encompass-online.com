@@ -23,6 +23,8 @@
     <link href="{{ asset('assets/styles/styles.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css"/>
 
+    <script src="{{ asset('/assets/vuejs/vue.global.js') }}"></script>
+
     @vite(['resources/css/app.css'])
     {{--todo - this is working--}}
 
@@ -121,7 +123,6 @@
 
 <script src="//cdn.tailwindcss.com"></script>
 
-<script src="{{ asset('/assets/vuejs/vue.global.js') }}"></script>
 
 @vite(['resources/js/app.js'])
 @vite('resources/js/utils.js')

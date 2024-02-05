@@ -69,7 +69,7 @@ function initUsersTable(type, $table) {
         const tableData = data.map(n => {
             return {
                 id: n.id,
-                name: n.name,
+                name: n.first_name?n.first_name+' '+n.last_name:n.name,
                 type: n.type,
                 email: n.email,
                 created: moment(n.created_at).format('MMMM Do YYYY, h:mm:ss a'),
