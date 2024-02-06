@@ -22,8 +22,7 @@
     <link rel="stylesheet" href="{{ url('css/_icons.css') }}">
     <link href="{{ asset('assets/styles/styles.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css"/>
-
-    <script src="{{ asset('/assets/vuejs/vue.global.js') }}"></script>
+    <script src='//cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
 
     @vite(['resources/css/app.css'])
     {{--todo - this is working--}}
@@ -74,7 +73,7 @@
     </style>
 </head>
 
-<body class="font-sans antialiased bg-gray-100">
+<body class="font-sans antialiased bg-gray-100" id="vue-application">
 <div class="flex flex-col flex-1 relative">
 
     {{--Navigation--}}

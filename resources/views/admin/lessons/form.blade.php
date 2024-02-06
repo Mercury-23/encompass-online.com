@@ -105,7 +105,6 @@
         {{-- todo - <form action="#" method="POST" class="" @submit.prevent="saveRecord()">--}}
         <form action="{{ route('admin.lessons.store') }}" method="POST" class="">
             @csrf
-
             {{--hidden utc start time--}}
             <input type="hidden" name="utcStartTime" class="utc-start-time">
 
@@ -134,8 +133,7 @@
                                     <span
                                         class="alert alert-danger text-center py-1 w-100 mb-0 animate__animated animate__zoomIn d-inline-block">
                                     <i class="fas fa-exclamation-triangle mr-1"></i>
-                                    <strong>Whoops!</strong>
-                                    Please fix the errors and try again.
+                                    <strong>Whoops!</strong> Please fix the errors and try again.
                                 </span>
                                 @endif
 

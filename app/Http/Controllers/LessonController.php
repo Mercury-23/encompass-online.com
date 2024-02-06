@@ -9,20 +9,21 @@ use Illuminate\Support\Facades\Validator;
 
 class LessonController extends Controller
 {
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $auth_user = Auth::user();
 
         dd($request->all());
 
 
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             "teacher_id" => "required",
             "student_id" => "required",
             "instrument" => "required",
             "price" => "required",
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return response()->json([
                 "status_code" => 400,
                 "type" => "error",
@@ -37,7 +38,7 @@ class LessonController extends Controller
             "price" => $request->price,
         ]);
 
-        if($data){
+        if ($data) {
             return response()->json([
                 "status_code" => 201,
                 "type" => "success",
@@ -52,5 +53,13 @@ class LessonController extends Controller
             "message" => "Some internal error",
             "data" => null
         ], 502);
+    }
+
+    /**
+     * get the teacher's lessons
+     */
+    public function get_teacher_lessons()
+    {
+        return Lesson::with('instrument','student')->where('teacher_id',\auth()->id())->get();
     }
 }

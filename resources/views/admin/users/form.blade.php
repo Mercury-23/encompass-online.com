@@ -1,11 +1,3 @@
-@push('css')
-    <style>
-        select:hover {
-            cursor: pointer;
-        }
-    </style>
-@endpush
-
 @push('js')
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
     <!-- Intel input phone number plugin -->
