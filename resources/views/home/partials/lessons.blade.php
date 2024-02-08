@@ -55,9 +55,9 @@
     <h5 class="card-header">
         <i class="fas fa-list mr-1"></i>
         {{ __('Lessons') }}
-        <i class="fas fa-chalkboard-teacher float-right"></i>
+        <span class="font-bold rounded-full bg-red-500 text-white w-5 h-5 flex items-center justify-center float-right">{{$user->lessons->count()}}</span>
     </h5>
-    <div class="card-body">
+    <div class="card-body max-h-[15rem] overflow-auto" >
         @if($user->lessons->count() === 0)
             <p class="card-text text-muted text-sm">{{ __('You have no lessons.') }}</p>
         @else

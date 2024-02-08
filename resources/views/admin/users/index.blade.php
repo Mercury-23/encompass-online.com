@@ -1,8 +1,4 @@
-{{--User--}}
-{{--User - todo - tighten this page up--}}
-
 @push('css')
-    {{--todo - move all css, load with vite--}}
     <style>
         .iti.iti--allow-dropdown.iti--show-flags {
             width: 100% !important;
@@ -43,121 +39,75 @@
             margin: 0 .8rem;
         }
     </style>
-
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.css"/>
     <link rel="stylesheet" href="/css/data-tables.css"/>
-
-
     @vite('resources/css/admin.index.css')
 
 @endpush
 
 @push('js')
     <script src='//cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
-
     @vite('resources/js/admin/users.index.js')
 @endpush
 
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <i class="fas fa-user-shield mr-1"></i>
+            <i class="fas fa-users mr-1"></i>
+            {{ __('Users') }}
+        </h2>
+    </x-slot>
+
+    {{--Admin Nav--}}
+    @include('admin.nav.admin-nav')
+
+    {{--Vue App--}}
+    <div id="vue-app" class="py-2">
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <div class="">
+                        @include('admin.users.form')
+                    </div>
+
+                    {{--DataTable--}}
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fas fa-users mr-1"></i>
+                                All Users
+                            </h3>
+                        </div>
+                        <div class="card-body overflow-auto px-2">
+                            <table id="users-table" class="display">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First name / Last name</th>
+                                    <th>Avatar</th>
+                                    <th>Type</th>
+                                    <th>Email</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</x-app-layout>
 @push('js')
-    {{--todo - move all this to resources/css, load with vite--}}
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    {{--todo - only load this where needed--}}
-    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>--}}
-    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>--}}
-    {{--todo - inputmask are conflicting, can only include one--}}
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js" ></script>
-{{--    <script src="{{ asset('/assets/plugins/phone-masking/inputmask.js') }}"></script>--}}
-    {{--todo - fix these ^^^^--}}
-
-    {{--todo - only load this where needed--}}
-    {{--todo - only load this where needed--}}
-    {{--todo - only load this where needed--}}
-    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>--}}
-    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>--}}
-    {{--todo - inputmask are conflicting, can only include one--}}
-    {{--    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js" ></script>--}}
-    {{--<script src="{{ asset('/assets/plugins/phone-masking/inputmask.js') }}"></script>--}}
-    {{--todo - fix these ^^^^--}}
-    {{--todo - fix these ^^^^--}}
-    {{--todo - fix these ^^^^--}}
-    {{--todo - fix these ^^^^--}}
-
-
-
-    {{--todo - fix phone masking--}}
-    {{--todo - fix phone masking--}}
-    {{--todo - fix phone masking--}}
-    {{--todo - fix phone masking--}}
-
-    <!-- Intel input phone number plugin -->
     <script>
-        // todo - fix or remove this...
-        // jquery plugin for phone number
-        // const input = document.querySelector("#phone");
-        // const iti = window.intlTelInput(input, {
-        //     // separateDialCode:true,
-        //     utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.0/build/js/utils.js",
-        // });
-        //
-        // // store the instance variable, so we can access it in the console e.g. window.iti.getNumber()
-        // window.iti = iti;
-
-        // $(document).ready(function () {
-            const $phone = $("#phone");
-
-            console.log($phone);
-
-            const $edit_phone = $("#edit_phone");
-            const maskConfig = {
-                mask: '###-###-####',
-                placeholder: '#'
-            };
-
-            // If $phone is not empty
-            if ($phone.length > 0) {
-                $phone.inputmask(maskConfig);
-            }
-
-            if ($edit_phone.length > 0) {
-                $edit_phone.inputmask(maskConfig);
-            }
-
-
-            // todo - fix or remove this...
-            // function aiAssit() {
-            //     $phone.intlTelInput({
-            //         separateDialCode: true,
-            //         initialCountry: "auto",
-            //         geoIpLookup: function (callback) {
-            //             $.get('https://ipinfo.io', function () {
-            //             }, "jsonp").always(function (resp) {
-            //                 var countryCode = (resp && resp.country) ? resp.country : "";
-            //                 callback(countryCode);
-            //             });
-            //         },
-            //         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
-            //     });
-            //     $edit_phone.intlTelInput({
-            //         separateDialCode: true,
-            //         initialCountry: "auto",
-            //         geoIpLookup: function (callback) {
-            //             $.get('https://ipinfo.io', function () {
-            //             }, "jsonp").always(function (resp) {
-            //                 var countryCode = (resp && resp.country) ? resp.country : "";
-            //                 callback(countryCode);
-            //             });
-            //         },
-            //         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
-            //     });
-            //     $phone.on("countrychange", function (e, countryData) {
-            //         console.log(countryData);
-            //     });
-            // }
-            //
-        // });
-
-
+        /** todo move the calendar init and event click  stuff  to where we need the calendar */
         const vueApp = Vue.createApp({
             data() {
                 // init Calendar
@@ -488,387 +438,10 @@
                 });
                 this.calendar.render();
 
-                $('#submit_event').on('click',this.EventHandler)
+                $('#submit_event').on('click', this.EventHandler)
             },
         });
 
         vueApp.mount('#vue-app');
     </script>
 @endpush
-
-
-
-
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <i class="fas fa-user-shield mr-1"></i>
-            <i class="fas fa-users mr-1"></i>
-            {{ __('Users') }}
-        </h2>
-    </x-slot>
-
-    {{--Admin Nav--}}
-    @include('admin.nav.admin-nav')
-
-    {{--Vue App--}}
-    <div id="vue-app" class="py-2">
-
-
-        {{--Wrapper--}}
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <div class="container">
-
-                        {{--DataTable--}}
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3>
-                                        <i class="fas fa-users mr-1"></i>
-                                        All Users
-                                    </h3>
-                                </div>
-                                <div class="card-body overflow-auto px-2">
-                                    <table id="users-table" class="display">
-                                        <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Avatar</th>
-                                            <th>Type</th>
-                                            <th>Email</th>
-                                            <th>Created</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        @include('admin.users.users-table', ['users' => $teachers])
-
-
-                        <div class="row d-none">
-                            <div class="col">
-
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">Active</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                                    </li>
-                                </ul>
-
-
-                                <ul class="nav nav-pills nav-fill">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">Active</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Much longer nav link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Link</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-
-                        <div class="row mb-1 d-none">
-                            <div class="col">
-                                <div class="accordion" id="accordionPanelsStayOpenExample">
-
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                                Accordion Item #1
-                                            </button>
-                                        </h2>
-                                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                                            <div class="accordion-body">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                                Accordion Item #2
-                                            </button>
-                                        </h2>
-                                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-                                            <div class="accordion-body">
-                                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                                Accordion Item #3
-                                            </button>
-                                        </h2>
-                                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-                                            <div class="accordion-body">
-                                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="row mb-2">
-
-
-
-                            {{--Create User and Instrument--}}
-
-
-                            {{--Create User--}}
-                            <div class="col-md-8">
-                                <div class="card mb-1">
-                                    <h5 class="card-header">
-                                        <i class="fa-solid fa-user mr-1"></i>
-                                        Create User
-                                    </h5>
-                                    <div class="card-body">
-                                        <form action="#" method="POST" class="" @submit.prevent="saveRecord()">
-                                            <!-- Image Preview Before Upload(Begin) -->
-                                            <div class="mb-3">
-                                                <div class="d-flex justify-content-center my-2">
-                                                    <img :src="previewImage" alt="profile_image" @click="selectImage"
-                                                         class="rounded-full cursor-pointer"
-                                                         style="object-fit: cover; width: 100px;height: 100px;">
-                                                </div>
-                                                <input ref="fileInput" name="photo" type="file" @input="pickFile"
-                                                       style="display:none;"
-                                                       accept="image/*">
-                                            </div>
-
-                                            <!-- Image Preview Before Upload(End) -->
-                                            <div class="row mb-2">
-                                                <div class="col">
-                                                    <label for="first_name" class="form-label">First Name</label>
-                                                    <input type="text" class="form-control rounded-2" id="first_name"
-                                                           name="first_name"
-                                                           v-model="first_name" aria-describedby="first_nameHelp"
-                                                           placeholder="Enter first name" autocomplete required>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="last_name" class="form-label">Last Name</label>
-                                                    <input type="text"
-                                                           class="form-control rounded-2"
-                                                           id="last_name"
-                                                           name="last_name"
-                                                           v-model="last_name" aria-describedby="last_nameHelp"
-                                                           placeholder="Enter last name" autocomplete required>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col">
-                                                    <label for="email" class="form-label">Email</label>
-                                                    <input type="email"
-                                                           class="form-control rounded-2"
-                                                           id="email"
-                                                           name="email"
-                                                           v-model="email" aria-describedby="emailHelp"
-                                                           placeholder="abc@gmail.com" required>
-                                                </div>
-                                                <div class="col">
-                                                    <label for="phone" class="form-label">Phone</label><br/>
-                                                    <input type="tel" class="form-control rounded-2" id="phone"
-                                                           name="phone"
-                                                           aria-describedby="phoneHelp" placeholder="000 0000000"
-                                                           required>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-2">
-                                                <div class="col">
-                                                    <label for="password">Password</label>
-                                                    <input
-                                                        id="password"
-                                                        class="form-control border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                                                        type="password"
-                                                        name="password"
-                                                        v-model="password"
-                                                        required
-                                                        autocomplete
-                                                    >
-                                                    <x-input-error :messages="$errors->get('password')" class="mt-2"/>
-                                                </div>
-                                                <div class="col">
-                                                    <!-- drop down with Teacher, Parent, Student -->
-                                                    <x-input-label for="role" :value="__('Role')"/>
-                                                    <select id="role" name="role" v-model="role"
-                                                            class="form-control rounded-2"
-                                                            required>
-                                                        <option value="teacher">Teacher</option>
-                                                        <option value="parent">Parent</option>
-                                                        <option value="student">Student</option>
-                                                    </select>
-                                                    <x-input-error :messages="$errors->get('role')" class="mt-2"/>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex justify-content-end">
-                                                <button type="submit" class="btn btn-primary bg-primary">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {{--Create Instrument--}}
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <h5 class="card-header">
-                                        <i class="fa-solid fa-guitar mr-1"></i>
-                                        Instruments
-                                    </h5>
-                                    <div class="card-body">
-                                        <form action="" method="POST" @submit.prevent="saveInstrument()">
-                                            <!-- Image Preview Before Upload(Begin) -->
-                                            <div class="mb-3">
-                                                <div class="d-flex justify-content-center my-2">
-                                                    <img :src="preview_instr_image" alt="instrument image"
-                                                         @click="select_instr_image"
-                                                         class="rounded-full cursor-pointer"
-                                                         style="object-fit: cover; width: 100px;height: 100px;">
-                                                </div>
-                                                <input ref="instr_file" name="instr_file" type="file"
-                                                       @input="pick_instr_file" style="display:none;"
-                                                       accept="image/*">
-                                            </div>
-
-                                            <!-- Image Preview Before Upload(End) -->
-                                            <div class="mb-3">
-                                                <label for="instr_name" class="form-label">Name*</label>
-                                                <input type="text" class="form-control rounded-2" id="instr_name"
-                                                       v-model="instr_name" aria-describedby="nameHelp"
-                                                       placeholder="Enter instrument name" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="hour_rate" class="form-label">Hour rate*</label>
-                                                <input type="number" class="form-control rounded-2" id="hour_rate"
-                                                       v-model="hour_rate" aria-describedby="nameHelp"
-                                                       placeholder="Enter per hour rate" required>
-                                            </div>
-
-                                            <div class="d-flex justify-content-end">
-                                                <button type="submit" class="btn btn-primary bg-primary ">Submit
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{--Lessons Calendar--}}
-                        <div class="row mb-2">
-                            <div class="col">
-                                <div class="card">
-                                    <h5 class="card-header">
-                                        <i class="fa-solid fa-calendar-alt mr-1"></i>
-                                        Lessons Schedule
-                                    </h5>
-                                    <div class="card-body">
-                                        <div id="teacher-calendar"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Instruments Table -->
-        <div class="my-3">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-1 text-gray-900">
-                        {{--Instruments Table--}}
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>
-                                    <i class="fa-solid fa-guitar mr-1"></i>
-                                    <i class="fa-solid fa-table-list"></i>
-                                    Instruments Table
-                                </h3>
-                            </div>
-                            <div class="card-body px-2">
-                                <table id="instruments-table" class="display">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Hourly Rate</th>
-                                        <th>Created</th>
-                                        <th>Updated</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Users Table -->
-        <div class="my-3">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-1 text-gray-900">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>
-                                    <i class="fa-solid fa-users mr-1"></i>
-                                    <i class="fa-solid fa-table-list mr-1"></i>
-                                    Users Table
-                                </h3>
-                            </div>
-                            <div class="card-body px-2">
-                                <table id="users-table" class="display">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Created</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</x-app-layout>

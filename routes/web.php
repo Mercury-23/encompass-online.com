@@ -28,6 +28,9 @@ Route::get('/', function () {
  * Authenticated Users
  * */
 Route::middleware('auth')->group(function () {
+
+
+
     /* ------------------------------------------------ */
     /*  ---------------- Basic Pages Routes ----------- */
     /*------------------------------------------------- */
@@ -102,6 +105,9 @@ Route::middleware('auth')->group(function () {
     /* ------------------------------------------------ */
     /*  ---------------- Profile Routes --------------- */
     /*------------------------------------------------- */
+
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])
         ->name('profile.edit');
 
@@ -110,6 +116,7 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/profile', [ProfileController::class, 'destroy'])
         ->name('profile.destroy');
+
 
     /* ------------------------------------------------ */
     /*  ---------------- Settings --------------------- */

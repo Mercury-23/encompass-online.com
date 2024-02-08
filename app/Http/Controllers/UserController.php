@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Log;
 
@@ -20,10 +21,12 @@ class UserController extends Controller
 //        return view('user.index', compact('users'));
     }
 
-    /*
+    /**
+     * THIS FUNCTION HAS BEEN TRUNCATED USE "create" INSTEAD
      * API function for create user
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
+     *
      * */
     public function store(Request $request)
     {
@@ -92,6 +95,75 @@ class UserController extends Controller
             'message' => 'Great! Record added successfully.',
         ], 201);
     }
+
+
+    public function create(Request $request)
+    {
+        $request->validate([
+            "first_name" => 'required',
+            "last_name" => 'required',
+            "email" => 'required|unique:users,email',
+            "password" => 'required',
+            "type" => 'required',
+            "address_1" => 'required',
+            "city" => 'required',
+            "state" => 'required',
+            "postal_code" => 'required',
+            "country" => 'required',
+        ]);
+        DB::beginTransaction();
+        $n_user = new User();
+        try {
+            $n_user->first_name = $request->first_name;
+            $n_user->last_name = $request->last_name;
+            $n_user->email = $request->email;
+            $n_user->type = $request->type;
+            $n_user->password = Hash::make($request->password);
+            $n_user->informations = [
+                "tags" => $request->tags,
+                "gender" => $request->gender ? $request->gender : 'student',
+                "type" => $request->type,
+                'address' => [
+                    "address_1" => $request->address_1,
+                    "address_2" => $request->address_2,
+                    "city" => $request->city,
+                    "state" => $request->state,
+                    "postal_code" => $request->postal_code,
+                    "country" => $request->country,
+                ],
+                "grade" => $request->grade,
+                "customer_number" => $request->customer_number,
+                "inActive" => $request->inActive,
+                "enrollment" => $request->enrollment,
+                "home_phone" => $request->home_phone,
+                "cell_phone" => $request->cell_phone,
+                "source" => $request->source,
+                "school_name" => $request->school_name,
+                "special_need" => $request->special_need,
+                "background" => $request->background,
+                "allergies" => $request->allergies,
+                "notes" => $request->notes,
+            ];
+            $n_user->save();
+            DB::commit();
+            return  response()->json([
+                'message'=>'The new user has been created successfully'
+            ]);
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return  response()->json([
+                'message'=>'error  ',
+                'dev_message'=>$exception->getMessage()
+            ],500);
+        }
+
+    }
+
+    public function get_users_by(Request $request)
+    {
+        return User::where($request->subject, $request->value)->get();
+    }
+
 
     public function update(Request $request)
     {
