@@ -46,7 +46,6 @@
 @endpush
 
 @push('js')
-    <script src='//cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
     @vite('resources/js/admin/users.index.js')
 @endpush
 

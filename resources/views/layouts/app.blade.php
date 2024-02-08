@@ -73,7 +73,7 @@
     </style>
 </head>
 
-<body class="font-sans antialiased bg-gray-100" id="vue-application">
+<body class="font-sans antialiased bg-gray-100"  >
 <div class="flex flex-col flex-1 relative">
 
     {{--Navigation--}}
@@ -90,23 +90,16 @@
         </header>
     @endif
 
-    {{--Spinner--}}
-    {{--    <div class="flex justify-center pt-5 h-screen main-spinner">--}}
-    {{--        <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>--}}
-    {{--    </div>--}}
-
     {{--Main--}}
     <main class="">
         {{ $slot }}
     </main>
 </div>
 
-{{--Footer--}}
-{{--@include('layouts.footer')--}}
-
 {{--todo - this breaking navigation???--}}
 <script src="//code.jquery.com/jquery-3.7.1.min.js"></script>
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
@@ -115,13 +108,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
+        crossorigin="anonymous"  referrerpolicy="no-referrer"></script>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="//cdn.tailwindcss.com"></script>
-
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 @vite(['resources/js/app.js'])
 @vite('resources/js/utils.js')
