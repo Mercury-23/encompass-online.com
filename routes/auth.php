@@ -86,6 +86,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/all/students', [AdminController::class, 'allStudents'])
         ->name('admin.allStudents');
 
+
+
     /* ------------------------------------------------ */
     /*  ---------------- Admin Routes ----------------- */
     /*------------------------------------------------- */
@@ -110,6 +112,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         ->name('admin.lessons.store');
     Route::delete('/admin/lessons/{id}', [AdminController::class, 'lessonsDestroy'])
         ->name('admin.lessons.destroy');
+
 
     /* ------------------------------------------------ */
     /*  ---------------- Invoices Routes -------------- */
@@ -167,4 +170,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/user', [UserController::class, 'store'])->name('user.store');
     Route::patch('/user', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::post('/profile', [UserController::class, 'create']) ->name('profile.create');
+    //Route::post('/profile/get_users_by', [ProfileController::class, 'get_users_by']) ->name('profile.get_users_by');
 });
+
+/**
+    d
+ */
+Route::get('/teacher_lessons', [\App\Http\Controllers\LessonController::class, 'get_teacher_lessons']);

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('first_name', 100)->nullable();
             $table->string('last_name', 100)->nullable();
             $table->string('type')->default('student')->nullable();
+            $table->longText('informations')->default('[]')->nullable();
 
             //Entering Phone Number -----------------|
             $table->string('phone_iso2', 3)->nullable();

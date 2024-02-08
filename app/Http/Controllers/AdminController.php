@@ -40,11 +40,12 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('users', 'instruments'));
     }
 
-/*
-     * Admin Database
-     * @return \Illuminate\Http\Response
-     * */
-    public function database() {
+    /*
+         * Admin Database
+         * @return \Illuminate\Http\Response
+         * */
+    public function database()
+    {
         return view('admin.database.index');
     }
 
@@ -143,8 +144,6 @@ class AdminController extends Controller
         ];
 
 
-//        dd($lessons);
-
         return view(
             'admin.lessons.index',
             compact('users', 'instruments', 'lessons', 'teachers', 'parents', 'students', 'durations', 'rates', 'fields')
@@ -167,15 +166,14 @@ class AdminController extends Controller
 
 //            'utcStartTime' => 'required|date',
         ]);
+        // add duration to start time
+        $startTime = Carbon::parse($request->startTime);
+        // $endTime = $startTime->addMinutes((int) $request->duration);
+        $endTime = Carbon::parse($request->startTime)->addMinutes((int)$request->duration);
 
-//        dd($request->all());
+       // dd($request->all() , $startTime , $endTime);
 
         try {
-            // add duration to start time
-            $startTime = Carbon::parse($request->utcStartTime);
-//        $endTime = $startTime->addMinutes((int) $request->duration);
-            $endTime = $startTime->copy()->addMinutes((int)$request->duration);
-
             $request->merge([
                 'start_time' => $startTime->toDateTimeString(),
                 'end_time' => $endTime->toDateTimeString(),
@@ -315,7 +313,6 @@ class AdminController extends Controller
     }
 
 
-
     /*
      * Instruments Index
      * @return \Illuminate\Http\Response
@@ -345,7 +342,6 @@ class AdminController extends Controller
         session()->flash('success', 'Saved successfully!');
         return redirect()->back();
     }
-
 
 
     /* ------------------------------------------------ */
@@ -386,8 +382,6 @@ class AdminController extends Controller
     }
 
     /* ------------------------------------------------ */
-
-
 
 
     /*
@@ -450,7 +444,7 @@ class AdminController extends Controller
             ];
         });
 
-        return response()->json(['totals' => (array) $cached]);
+        return response()->json(['totals' => (array)$cached]);
     }
 
     /*
