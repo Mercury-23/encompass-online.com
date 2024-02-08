@@ -10,5 +10,5 @@ import {createApp} from "vue/dist/vue.esm-bundler.js";
 const app = createApp({});
 app.component('calendar',calendar)
 
-app.mount('#vue-app');
+app.mount('#vue-app-teacher');
 //vue-application

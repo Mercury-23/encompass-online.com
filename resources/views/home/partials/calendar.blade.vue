@@ -59,10 +59,8 @@ export default {
                         extendedProps: {
                             status: new Date() > new Date(event.end_time)?'complete':''
                         }
-                        // Add other properties as needed
                     });
                 })
-                console.log(this.Events)
             })
         }
     },
@@ -70,7 +68,7 @@ export default {
 </script>
 <!--@endpush-->
 <template>
-    <div class="card col-md-8" id="app">
+    <div class="card col-md-8">
         <div class="card-header">
             <i class="fas fa-calendar-alt mr-1"></i>
             {{ ('Calendar') }}

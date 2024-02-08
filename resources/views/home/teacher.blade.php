@@ -1,19 +1,5 @@
 @push('css')
-    {{--    <link--}}
-    {{--        href="https://cdn.datatables.net/v/bs5/dt-1.13.8/date-1.5.1/fc-4.3.0/fh-3.4.0/sc-2.3.0/sl-1.7.0/datatables.min.css"--}}
-    {{--        rel="stylesheet">--}}
-
     @vite('resources/css/home.css')
-
-    <style>
-    </style>
-@endpush
-
-@push('js')
-
-    {{--    <script--}}
-    {{--        src="//cdn.datatables.net/v/bs5/dt-1.13.8/date-1.5.1/fc-4.3.0/fh-3.4.0/sc-2.3.0/sl-1.7.0/datatables.min.js"></script>--}}
-
 @endpush
 
 <x-app-layout>
@@ -28,7 +14,7 @@
     </x-slot>
 
     {{--App--}}
-    <div class="py-1" id="vue-app">
+    <div class="py-1" id="vue-app-teacher">
 
         <div class="container p-1">
             <div class="bg-white shadow-sm rounded p-1">
