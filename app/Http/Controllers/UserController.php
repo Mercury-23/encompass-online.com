@@ -31,18 +31,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $auth = Auth::user();
-        Log::info($request->all());
-
-//        if($auth->type!=='admin'){
-//            return response()->json([
-//                'status_code' => 401,
-//                'type' => 'error',
-//                'message' => 'You are not authorized to perform this action.',
-//            ], 401);
-//        }
-
-        // todo - Youcef, save the image...
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'first_name' => "required",
             'last_name' => "required",
             'email' => "required",
@@ -50,13 +39,14 @@ class UserController extends Controller
             'phone_number' => "required",
         ]);
 
-        if ($validator->fails()) {
+        if($auth->type!=='admin'){
             return response()->json([
-                'status_code' => 400,
+                'status_code' => 401,
                 'type' => 'error',
-                'message' => $validator->messages()->toArray(),
-            ], 400);
+                'message' => 'You are not authorized to perform this action.',
+            ], 401);
         }
+
 
         $user = User::create([
             'name' => $request->first_name . ' ' . $request->last_name,
