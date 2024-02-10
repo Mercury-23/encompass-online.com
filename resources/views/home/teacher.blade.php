@@ -11,10 +11,10 @@
         </h2>
     </x-slot>
     {{--App--}}
-    <div class="py-1" id="vue-app-teacher">
+    <div class="!pt-4" id="vue-app-teacher">
 
-        <div class="container p-1">
-            <div class="bg-white shadow-sm rounded p-1">
+        <div class="container ">
+            <div class="bg-white shadow-sm rounded !p-4">
 
                 <div class="row">
 
@@ -53,15 +53,22 @@
                 <div class="row mb-2">
                     <div class="col">
 {{--                        @include('home.partials.calendar.blade.vue')--}}
-                        <div class="card col-md-8">
-                            <div class="card-header">
-                                <i class="fas fa-calendar-alt mr-1"></i>
-                                {{ ('Calendar') }}
+
+                        <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                            <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
+                                <h2 class="text-xl font-extrabold dark:text-white">
+                                    <i class="fa-duotone fa-calendar-check mr-1"></i>
+                                    {{ __('Calendar') }}</h2>
+                                <div class=" ">
+                                </div>
                             </div>
-                            <div class="card-body">
+                            <hr class=" border-gray-500">
+                            <div class="flex flex-col !gap-4">
                                 <calendar ></calendar>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
 

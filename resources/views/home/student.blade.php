@@ -1,124 +1,4 @@
 @php use Carbon\Carbon; @endphp
-@push('css')
-    <link
-        href="https://cdn.datatables.net/v/bs5/dt-1.13.8/date-1.5.1/fc-4.3.0/fh-3.4.0/sc-2.3.0/sl-1.7.0/datatables.min.css"
-        rel="stylesheet">
-    @vite('resources/css/admin.index.css')
-
-    <style>
-        /*todo - first one*/
-        .financial-cards .card {
-            border: 1px solid #ddd;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .card-header {
-            background-color: #f8f9fa;
-            font-size: 1.2rem;
-            padding: 10px;
-        }
-        .card-body {
-            padding: 15px;
-            font-size: 1rem;
-        }
-        .amount {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        .change {
-            font-size: 0.9rem;
-            color: #28a745; /* green for positive, red (#dc3545) for negative */
-        }
-        .change .fa-arrow-up, .change .fa-arrow-down {
-            margin-right: 5px;
-        }
-        .projection {
-            font-size: 0.9rem;
-            color: #6c757d; /* gray */
-            margin-top: 10px;
-        }
-        @media (max-width: 768px) {
-            .financial-cards .card {
-                padding: 10px;
-            }
-        }
-
-
-
-        /* todo - current one !!! */
-        .financial-summary {
-            display: flex;
-            flex-direction: column;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .summary-item {
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-            padding: 10px 0;
-        }
-
-        .summary-item:last-child {
-            border-bottom: none;
-        }
-
-        .time-frame {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #333;
-            width: 20%;
-        }
-
-        .details {
-            width: 80%;
-            padding-left: 20px;
-        }
-
-        .income {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #28a745; /* positive income color */
-        }
-
-        .comparison {
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-
-        .comparison .fa-arrow-up, .comparison .fa-arrow-down {
-            margin-right: 5px;
-        }
-
-        .projection {
-            font-size: 0.9rem;
-            color: #6c757d; /* gray */
-            margin-top: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .financial-summary {
-                padding: 10px;
-            }
-            .details {
-                padding-left: 10px;
-            }
-        }
-
-
-
-
-    </style>
-@endpush
-
-@push('js')
-    <script src='//cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
-    <script
-        src="https://cdn.datatables.net/v/bs5/dt-1.13.8/date-1.5.1/fc-4.3.0/fh-3.4.0/sc-2.3.0/sl-1.7.0/datatables.min.js"></script>
-@endpush
 
 <x-app-layout>
 
@@ -126,31 +6,19 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <i class="fa-duotone fa-home mr-1"></i>
-            {{ __('Home') }}
+            {{ __('Student\'s Home') }}
         </h2>
     </x-slot>
 
     {{--App--}}
-    <div class="py-1" id="vue-app"
-         style="border: 1px solid red"
-    >
-
-        <div class="container p-1"
-             style="border: 1px solid blue"
-        >
-
+    <div class="py-1" id="vue-app" >
+        <div class="container p-1" >
             <div class="bg-white shadow-sm rounded p-2">
                 <div class="row">
-
-                    <h3>
-                        Student Home
-                    </h3>
-
                     {{--User Info--}}
                     <div class="col-xs-12 col-md-4">
                         @include('home.partials.user-info')
                     </div>
-
                     {{--Logo--}}
                     <div class="col-xs-12 col-md-4">
                         <div class="border rounded text-center m-1">

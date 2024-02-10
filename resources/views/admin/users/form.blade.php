@@ -126,7 +126,6 @@
                                 <x-input-label for="birth_day" :value="__('Birth Day')"/>
                                 <x-text-input id="birth_day" class="block mt-1 w-full date_input" type="text"
                                               name="birth_day"
-                                              v-model="form_data.birth_day"
                                               :value="old('birth_day')" required autofocus autocomplete="birth_day"/>
                                 <x-input-error :messages="$errors->get('birth_day')" class="mt-2"/>
                             </div>

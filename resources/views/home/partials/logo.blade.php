@@ -1,14 +1,14 @@
-{{--Logo--}}
-<div class="card h-100">
-    <h5 class="card-header">
-        <i class="fa-duotone fa-clock mr-1"></i>
-        <div class="float-right dateTime">
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+
+<div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+    <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
+        <h2 class="text-xl font-extrabold dark:text-white">
+            <i class="fa-duotone fa-clock mr-1"></i>Logo</h2>
+        <div class=" ">
+
         </div>
-    </h5>
-    <div class="card-body">
-        <div class="text-center p-2">
-            <i class="fa-brands fa-slack display-1"></i>
-        </div>
+    </div>
+    <hr class=" border-gray-500">
+    <div class="flex flex-col justify-center items-center !gap-4">
+        <i class="fa-brands fa-slack display-1"></i>
     </div>
 </div>

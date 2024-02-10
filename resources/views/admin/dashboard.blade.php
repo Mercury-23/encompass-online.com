@@ -127,7 +127,9 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
             <div class="container text-gray-900 px-1 grid lg:grid-cols-8 grid-cols-1 !gap-4 !p-4">
 
                 <div class="col-span-full">
+
                     <div class="flex justify-center items-center !gap-4 ">
+
                         <div class="flex !gap-4 border border-gray-300 rounded-lg shadow !p-4 !px-6">
                             <div class="flex justify-center items-center">
                                 <div class="text-7xl font-extrabold ...">
@@ -145,6 +147,7 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                                 </div>
                             </div>
                         </div>
+
                         <div class="flex !gap-4 border border-gray-300 rounded-lg shadow !p-4 !px-6">
                             <div class="flex justify-center items-center">
                                 <div class="text-7xl font-extrabold ...">
@@ -162,25 +165,24 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
                 {{--Revenue--}}
                 <div class="col-span-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fas fa-calendar-check mr-1"></i>
-                            {{ __('Lessons per Week') }}
+                    <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                        <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
+                            <h2 class="text-xl font-extrabold dark:text-white">
+                                <i class="fa-duotone fa-calendar-check mr-1"></i>
+                                {{ __('Lessons per Week') }}
+                            </h2>
+                            <div class=" ">
+
+                            </div>
                         </div>
-                        <div class="card-body">
-                                <span
-                                    class="badge  align-items-center p-1 pe-2 text-success-emphasis bg-success-subtle border border-success-subtle rounded-pill">
-                                    +$100
-                                </span>
-                            <span
-                                class="badge  align-items-center p-1 pe-2 text-success-emphasis bg-success-subtle border border-success-subtle rounded-pill">
-                                    +2.3%
-                                </span>
+                        <hr class=" border-gray-500">
+                        <div class="flex flex-col !gap-4">
                             <div>
                                 <canvas id="lessons_by_week-chart" height="120"></canvas>
                             </div>
@@ -189,13 +191,18 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                 </div>
                 {{--Lessons--}}
                 <div class="col-span-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <i class="fas fa-list-check mr-1"></i>
-                            {{ __('Lessons status per Week') }}
-                        </div>
-                        <div class="card-body">
+                    <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                        <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
+                            <h2 class="text-xl font-extrabold dark:text-white">
+                                <i class="fa-duotone fa-list-check mr-1"></i>
+                                {{ __('Lessons status per Week') }}
+                            </h2>
+                            <div class=" ">
 
+                            </div>
+                        </div>
+                        <hr class=" border-gray-500">
+                        <div class="flex flex-col !gap-4">
                             <div>
                                 <canvas id="lessons_by_week_status_chart" height="120"></canvas>
                             </div>
@@ -210,12 +217,18 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                 <div class="col-span-4 grid lg:grid-cols-4 grid-cols-2 !gap-4 ">
                     {{--Teachers--}}
                     <div class="lg:col-span-2">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fas fa-chalkboard-teacher mr-1"></i>
-                                {{ __('Teachers') }}
+                        <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                            <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
+                                <h2 class="text-xl font-extrabold dark:text-white">
+                                    <i class="fa-duotone fa-chalkboard-teacher mr-1"></i>
+                                    {{ __('Teachers') }}
+                                </h2>
+                                <div class=" ">
+
+                                </div>
                             </div>
-                            <div class="card-body">
+                            <hr class="border-gray-500">
+                            <div class="flex flex-col !gap-4">
                                 <div class="flex justify-center items-center">
                                     <div class="text-8xl font-extrabold ...">
                                         <p class="bg-clip-text text-transparent bg-gradient-to-b from-red-500 to-orange-500">
@@ -229,12 +242,19 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                     </div>
                     {{--Parents--}}
                     <div class="lg:col-span-2">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fas fa-user-friends mr-1"></i>
-                                {{ __('Parents') }}
+
+                        <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                            <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
+                                <h2 class="text-xl font-extrabold dark:text-white">
+                                    <i class="fa-duotone fa-user-friends mr-1"></i>
+                                    {{ __('Parents') }}
+                                </h2>
+                                <div class=" ">
+
+                                </div>
                             </div>
-                            <div class="card-body">
+                            <hr class="border-gray-500">
+                            <div class="flex flex-col !gap-4">
                                 <div class="flex justify-center items-center">
                                     <div class="text-8xl font-extrabold ...">
                                         <p class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
@@ -248,12 +268,18 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                     </div>
                     {{--Students--}}
                     <div class="lg:col-span-2">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fas fa-user-graduate mr-1"></i>
-                                {{ __('Students') }}
+                        <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                            <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
+                                <h2 class="text-xl font-extrabold dark:text-white">
+                                    <i class="fa-duotone fa-user-graduate mr-1"></i>
+                                    {{ __('Students') }}
+                                </h2>
+                                <div class=" ">
+
+                                </div>
                             </div>
-                            <div class="card-body">
+                            <hr class="border-gray-500">
+                            <div class="flex flex-col !gap-4">
                                 <div class="flex justify-center items-center">
                                     <div class="text-8xl font-extrabold ...">
                                         <p class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">
@@ -269,12 +295,17 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                 {{--Calendar--}}
                 <div class="col-span-4 row-span-3">
                     <div class="">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fas fa-calendar-alt mr-1"></i>
-                                {{ __('Calendar') }}
+                        <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                            <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
+                                <h2 class="text-xl font-extrabold dark:text-white">
+                                    <i class="fa-duotone fa-calendar-alt mr-1"></i>
+                                    {{ __('Calendar') }}
+                                </h2>
+                                <div class=" ">
+
+                                </div>
                             </div>
-                            <div class="card-body overflow-auto">
+                            <div class="bg-white overflow-auto !p-4">
 {{--                                <div id="admin-calendar"></div>--}}
                                 <calendar :show-all-lessons="true"></calendar>
                             </div>

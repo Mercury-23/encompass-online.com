@@ -1,8 +1,6 @@
-@push('css')
-    <style>
+@php
 
-    </style>
-@endpush
+@endphp
 
 @push('js')
     <script>
@@ -51,19 +49,25 @@
     </script>
 @endpush
 
-<div class="card">
-    <h5 class="card-header">
-        <i class="fas fa-list mr-1"></i>
-        {{ __('Lessons') }}
-        <span class="font-bold rounded-full bg-red-500 text-white w-5 h-5 flex items-center justify-center float-right">{{$user->lessons->count()}}</span>
-    </h5>
-    <div class="card-body max-h-[15rem] overflow-auto" >
+<div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+    <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
+        <h2 class="text-xl font-extrabold dark:text-white">
+            <i class="fa-duotone fa-chalkboard-teacher mr-1"></i> {{ __('Lessons') }}</h2>
+        <div class=" ">
+            <span class="font-bold rounded-full bg-red-500 text-white w-5 h-5 flex items-center justify-center float-right">
+                {{$user->lessons->where('completed',0)->count()}}
+            </span>
+        </div>
+    </div>
+    <hr class=" border-gray-500">
+    <div class="flex flex-col !gap-4 max-h-[15rem] overflow-auto">
+
         @if($user->lessons->count() === 0)
             <p class="card-text text-muted text-sm">{{ __('You have no lessons.') }}</p>
         @else
             <ul>
                 @foreach($user->lessons()->get() as $lesson)
-                    <li class="border shadow rounded my-2 p-2 text-center">
+                    <li class="border bg-white   rounded my-2 p-2 text-center">
 
                         {{--Delete - todo - fix this--}}
                         <form action="{{ route('lessons.destroy', $lesson->id) }}"
@@ -78,7 +82,7 @@
                             </button>
                         </form>
 
-                        {{--                        <a href="{{ route('lessons.show', $lesson->id) }}">--}}
+                        {{-- <a href="{{ route('lessons.show', $lesson->id) }}"> --}}
                         <a href="#{{ $lesson->id }}">
                             <div class="font-bold">
                                 <p>
