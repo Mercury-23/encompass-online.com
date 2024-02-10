@@ -1,5 +1,11 @@
 <script>
 export default {
+    props:{
+      showAllLessons:{
+          type:Boolean,
+          default:false,
+      }
+    },
     data() {
         return {
             calendar: '',
@@ -48,33 +54,45 @@ export default {
             this.calendar.render();
         },
         get_lessons() {
-            axios.get('/teacher_lessons', {}).then((res) => {
-                this.Events = res.data.map((event)=>{
-                    let title = event.instrument.name +' | '+ (event.student.name? event.student.name : event.student.first_name)
-                    this.calendar.addEvent({
-                        id: event.id,
-                        title:title, // Customize as needed
-                        start: event.start_time,
-                        end: event.end_time,
-                        extendedProps: {
-                            status: new Date() > new Date(event.end_time)?'complete':''
-                        }
-                    });
+            console.log(this.$props.showAllLessons)
+            if(this.$props.showAllLessons){
+                axios.get('/all_lessons').then((res) => {
+                    this.Events = res.data.map((event)=>{
+                        let instrument = event.instrument?event.instrument.name:'';
+                        let title = instrument  +' | '+ (event.student.name? event.student.name : event.student.first_name)
+                        this.calendar.addEvent({
+                            id: event.id,
+                            title:title, // Customize as needed
+                            start: event.start_time,
+                            end: event.end_time,
+                            extendedProps: {
+                                status: new Date() > new Date(event.end_time)?'complete':''
+                            }
+                        });
+                    })
                 })
-            })
+            }else {
+                axios.get('/teacher_lessons', {}).then((res) => {
+                    this.Events = res.data.map((event)=>{
+                        let instrument = event.instrument?event.instrument.name:'';
+                        let title =  instrument  +' | '+ (event.student.name? event.student.name : event.student.first_name)
+                        this.calendar.addEvent({
+                            id: event.id,
+                            title:title, // Customize as needed
+                            start: event.start_time,
+                            end: event.end_time,
+                            extendedProps: {
+                                status: new Date() > new Date(event.end_time)?'complete':''
+                            }
+                        });
+                    })
+                })
+            }
         }
     },
 }
 </script>
 <!--@endpush-->
 <template>
-    <div class="card col-md-8">
-        <div class="card-header">
-            <i class="fas fa-calendar-alt mr-1"></i>
-            {{ ('Calendar') }}
-        </div>
-        <div class="card-body">
-            <div id="lessons-calendar"></div>
-        </div>
-    </div>
+    <div id="lessons-calendar"></div>
 </template>

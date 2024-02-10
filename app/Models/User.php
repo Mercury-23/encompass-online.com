@@ -88,8 +88,9 @@ class User extends Authenticatable
     /*
      * Lessons
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     * */
-    public function lessons(): \Illuminate\Database\Eloquent\Relations\HasMany
+     *
+     */
+    public function lessons()
     {
         return $this->hasMany(Lesson::class, 'teacher_id');
     }

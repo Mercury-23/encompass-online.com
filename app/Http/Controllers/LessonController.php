@@ -62,4 +62,8 @@ class LessonController extends Controller
     {
         return Lesson::with('instrument','student')->where('teacher_id',\auth()->id())->get();
     }
+    public function get_all_lessons()
+    {
+        return Lesson::with(['instrument','student','teacher'])->get();
+    }
 }
