@@ -1,12 +1,11 @@
-console.log('dashboard.js')
-console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
+
 
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        initOtherCharts();
-        initRevenueByMonthChart();
-        initStudentEnrollmentChart();
+        // initOtherCharts();
+        // initRevenueByMonthChart();
+        // initStudentEnrollmentChart();
 
         // initLessonsByInstrumentPieChart();
         // initInstrumentPopularityPieChart();

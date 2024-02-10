@@ -1,9 +1,7 @@
 @push('css')
     @vite('resources/css/home.css')
 @endpush
-
 <x-app-layout>
-
     {{--Header--}}
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -12,7 +10,6 @@
             <span>Teacher</span>
         </h2>
     </x-slot>
-
     {{--App--}}
     <div class="py-1" id="vue-app-teacher">
 
@@ -56,7 +53,15 @@
                 <div class="row mb-2">
                     <div class="col">
 {{--                        @include('home.partials.calendar.blade.vue')--}}
-                        <calendar></calendar>
+                        <div class="card col-md-8">
+                            <div class="card-header">
+                                <i class="fas fa-calendar-alt mr-1"></i>
+                                {{ ('Calendar') }}
+                            </div>
+                            <div class="card-body">
+                                <calendar ></calendar>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

@@ -1,11 +1,10 @@
 {{--Navigation--}}
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 sticky     right-0 left-0 top-0 z-10">
-
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 sticky right-0 left-0 top-0 z-10">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
 
+            <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home.index') }}">
@@ -80,7 +79,7 @@
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center   w-fit ml-auto">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
@@ -305,10 +304,6 @@
                 @auth()
                     @if( auth()->user()->isAdmin() )
                         <div class="border-t border-gray-100 my-2"></div>
-                        <div class="text-center">
-                            <i class="fa-solid fa-user-secret"></i>
-                        </div>
-
                         {{--Dashboard--}}
                         <x-responsive-nav-link
                             :href="route('admin.dashboard')"

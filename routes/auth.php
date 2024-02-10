@@ -178,3 +178,4 @@ Route::middleware(['auth', 'admin'])->group(function () {
     d
  */
 Route::get('/teacher_lessons', [\App\Http\Controllers\LessonController::class, 'get_teacher_lessons']);
+Route::get('/all_lessons', [\App\Http\Controllers\LessonController::class, 'get_all_lessons']);

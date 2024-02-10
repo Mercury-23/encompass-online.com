@@ -1,48 +1,5 @@
 @push('css')
-    <style>
-        .iti.iti--allow-dropdown.iti--show-flags {
-            width: 100% !important;
-        }
-
-        .iti {
-            display: inline !important;
-        }
-
-        #phone {
-            /*width: 100% !important;*/
-            /*padding-left: 50px !important;*/
-        }
-
-        #docs-data-table thead th {
-            text-align: center;
-            background-color: #f2f2f2;
-            font-weight: 600;
-        }
-
-        #docs-data-table tbody tr {
-            cursor: pointer;
-            border-bottom: 1px solid #b2a6a6;
-        }
-
-        #docs-data-table tbody tr.active-row {
-            background-color: #cfcece; /* Light grey background */
-            /*color: #333; !* Darker text color *!*/
-        }
-
-        #instruments-table_filter {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        #instruments-table_length select {
-            min-width: 4.5rem;
-            margin: 0 .8rem;
-        }
-    </style>
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.css"/>
-    <link rel="stylesheet" href="/css/data-tables.css"/>
     @vite('resources/css/admin.index.css')
-
 @endpush
 
 @push('js')

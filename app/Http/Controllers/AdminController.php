@@ -34,10 +34,11 @@ class AdminController extends Controller
 //        $tables = DB::select('SHOW TABLES');
 //        dd($tables);
 
-
-        $users = User::all();
-        $instruments = Instrument::all();
-        return view('admin.dashboard', compact('users', 'instruments'));
+        $data = [];
+        $data['users'] = User::with(['lessons'])->get();
+        $data['instruments'] = Instrument::all();
+        $data['lessons'] = Lesson::with(['teacher','student','instrument'])->get();
+        return view('admin.dashboard', compact('data'));
     }
 
     /*
