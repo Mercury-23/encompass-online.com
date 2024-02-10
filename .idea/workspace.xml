@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0581469-84c1-4647-ac5a-ea37bafee2bc" name="main" comment="idea files">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encompass-online.com.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encompass-online.com.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="895c67b6-23cf-4d86-82c6-dbb734b96518" name="Changes" comment="" />
@@ -279,6 +273,7 @@
       <workItem from="1707358280598" duration="157000" />
       <workItem from="1707358445839" duration="3053000" />
       <workItem from="1707363877766" duration="2837000" />
+      <workItem from="1707608918689" duration="293000" />
     </task>
     <task id="LOCAL-00002" summary=" moving repo">
       <option name="closed" value="true" />
