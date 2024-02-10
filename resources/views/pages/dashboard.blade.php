@@ -30,7 +30,6 @@
 @endpush
 
 <x-app-layout>
-
     {{--Header--}}
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -38,10 +37,8 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
     {{--App--}}
     <div class="py-1" id="vue-app">
-
         <div class="container p-1">
             <div class="bg-white shadow-sm rounded p-1">
                 {{--Youcef Charts--}}
@@ -50,7 +47,6 @@
 
                         <div class="overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="text-gray-900">
-
                                 {{--Boxes At Top --}}
                                 <div class="grid grid-cols-6 mb-1">
                                     <div class="col-span-full">

@@ -2,17 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use App\Models\Instrument;
-use App\Models\Invoice;
 use App\Models\Lesson;
-use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
-use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,15 +16,14 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::getUser();
-
-        // todo - only for testing
-        if ($user->id === 1) {
+       // todo - only for testing
+     /*   if ($user->id === 1) {
             // load lessons
 //            $user->load('lessons');
 //            $user->lessons = $user->lessons()->get();
 
             return view('home.teacher', compact('user'));
-        }
+        }*/
 
         if ($user->hasRole('teacher')) {
             return view('home.teacher', compact('user'));
