@@ -171,9 +171,9 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
 
                 {{--Revenue--}}
                 <div class="col-span-4">
-                    <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                    <div class=" bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
                         <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
-                            <h2 class="text-xl font-extrabold dark:text-white">
+                            <h2 class="text-xl font-extrabold ">
                                 <i class="fa-duotone fa-calendar-check mr-1"></i>
                                 {{ __('Lessons per Week') }}
                             </h2>
@@ -191,9 +191,9 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                 </div>
                 {{--Lessons--}}
                 <div class="col-span-4">
-                    <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                    <div class=" bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
                         <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
-                            <h2 class="text-xl font-extrabold dark:text-white">
+                            <h2 class="text-xl font-extrabold ">
                                 <i class="fa-duotone fa-list-check mr-1"></i>
                                 {{ __('Lessons status per Week') }}
                             </h2>
@@ -217,9 +217,9 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                 <div class="col-span-4 grid lg:grid-cols-4 grid-cols-2 !gap-4 ">
                     {{--Teachers--}}
                     <div class="lg:col-span-2">
-                        <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                        <div class=" bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
                             <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
-                                <h2 class="text-xl font-extrabold dark:text-white">
+                                <h2 class="text-xl font-extrabold ">
                                     <i class="fa-duotone fa-chalkboard-teacher mr-1"></i>
                                     {{ __('Teachers') }}
                                 </h2>
@@ -243,9 +243,9 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                     {{--Parents--}}
                     <div class="lg:col-span-2">
 
-                        <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                        <div class=" bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
                             <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
-                                <h2 class="text-xl font-extrabold dark:text-white">
+                                <h2 class="text-xl font-extrabold ">
                                     <i class="fa-duotone fa-user-friends mr-1"></i>
                                     {{ __('Parents') }}
                                 </h2>
@@ -268,9 +268,9 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                     </div>
                     {{--Students--}}
                     <div class="lg:col-span-2">
-                        <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                        <div class=" bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
                             <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
-                                <h2 class="text-xl font-extrabold dark:text-white">
+                                <h2 class="text-xl font-extrabold ">
                                     <i class="fa-duotone fa-user-graduate mr-1"></i>
                                     {{ __('Students') }}
                                 </h2>
@@ -295,9 +295,9 @@ $this_month_revenu = $thisMonthLessons->filter(function ($lesson) {
                 {{--Calendar--}}
                 <div class="col-span-4 row-span-3">
                     <div class="">
-                        <div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+                        <div class=" bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
                             <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
-                                <h2 class="text-xl font-extrabold dark:text-white">
+                                <h2 class="text-xl font-extrabold ">
                                     <i class="fa-duotone fa-calendar-alt mr-1"></i>
                                     {{ __('Calendar') }}
                                 </h2>
