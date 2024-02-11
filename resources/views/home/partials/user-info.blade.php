@@ -1,7 +1,7 @@
 
-<div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+<div class="bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
     <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
-        <h2 class="text-xl font-extrabold dark:text-white">
+        <h2 class="text-xl font-extrabold   ">
             <i class="fa-duotone fa-user-circle mr-1"></i>{{ $user->name }}</h2>
         <div class=" ">
 
@@ -17,7 +17,6 @@
                 </div>
             </div>
         </div>
-
         <p class="text-lg font-bold mb-3">
             <i class="fa-duotone fa-user mr-1"></i>
             {{ $user->name }}
@@ -25,7 +24,7 @@
 
         <p class="font-bold text-gray-500 my-1">
             <i class="fa-duotone fa-phone mr-1"></i>
-            {!! $user->phone_number ?? '<i class="fa-duotone fa-question-circle ml-1"></i>' !!}
+            {!! $user->information->cell_phone  ?? '<i class="fa-duotone fa-question-circle ml-1"></i>' !!}
         </p>
 
         <p class="font-bold text-gray-500 my-1">

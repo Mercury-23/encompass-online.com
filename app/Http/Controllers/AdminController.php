@@ -16,24 +16,8 @@ class AdminController extends Controller
 {
     private int|float $CACHE_TIME = 60 * 2; // 2 minutes
 
-    /*
-     * AdminController constructor.
-     */
-    public function __construct()
-    {
-    }
-
-    // todo - lessons
-    //  - Get through whole flow
-    /*
-    * Admin Dashboard
-    * @return \Illuminate\Http\Response
-    * */
     public function dashboard()
     {
-//        $tables = DB::select('SHOW TABLES');
-//        dd($tables);
-
         $data = [];
         $data['users'] = User::with(['lessons'])->get();
         $data['instruments'] = Instrument::all();

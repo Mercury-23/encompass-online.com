@@ -49,9 +49,9 @@
     </script>
 @endpush
 
-<div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+<div class="bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
     <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
-        <h2 class="text-xl font-extrabold dark:text-white">
+        <h2 class="text-xl font-extrabold   ">
             <i class="fa-duotone fa-chalkboard-teacher mr-1"></i> {{ __('Lessons') }}</h2>
         <div class=" ">
             <span class="font-bold rounded-full bg-red-500 text-white w-5 h-5 flex items-center justify-center float-right">

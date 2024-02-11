@@ -94,14 +94,14 @@ class User extends Authenticatable
     public function getInformationAttribute()
     {
 
-        return Info::where('user_id', $this->id)->first() ?? (object)[];
+        return Info::where('user_id', $this->id)->first()->information ?? (object)[];
 
     }
 
     public function getAddressAttribute()
     {
 
-        return Addresses::where('user_id', $this->id)->first() ?? (object)[];
+        return Addresses::where('user_id', $this->id)->first()->address ?? (object)[];
 
     }
 }
