@@ -1,7 +1,7 @@
 
-<div class="dark:bg-slate-900 bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
+<div class=" bg-gray-100 rounded-lg !p-4 flex flex-col !gap-4">
     <div class="flex flex-wrap !gap-2 align-items-end  justify-between">
-        <h2 class="text-xl font-extrabold dark:text-white">
+        <h2 class="text-xl font-extrabold ">
             <i class="fa-duotone fa-clock mr-1"></i>Logo</h2>
         <div class=" ">
 

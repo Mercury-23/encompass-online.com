@@ -91,10 +91,6 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
-
-
-
-
         $request->validate([
             "first_name" => 'required',
             "last_name" => 'required',
@@ -157,11 +153,14 @@ class UserController extends Controller
                 ];
                 $addresses->save();
             DB::commit();
+            session()->flash('message', 'Saved successfully');
+
             return  response()->json([
                 'message'=>'The new user has been created successfully'
             ]);
         } catch (\Exception $exception) {
             DB::rollBack();
+            session()->flash('errors', 'error');
             return  response()->json([
                 'message'=>'error  ',
                 'dev_message'=>$exception->getMessage()

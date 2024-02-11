@@ -1,11 +1,12 @@
 @push('js')
     <!-- Intel input phone number plugin -->
+    <!--suppress JSAnnotator -->
     <script></script>
 @endpush
 
 <div class="row my-2" id="vue-app">
     <div class="col">
-        <form action="{{ route('profile.create') }}" method="post" @submit.prevent="save"
+        <form action="{{ route('profile.create') }}" method="post" @submit.prevent="save">
             @csrf
             {{--hidden utc start time--}}
             <input type="hidden" name="utcStartTime" class="utc-start-time">
@@ -36,9 +37,23 @@
                                 {{--Badge Message--}}
                                 @if( session('badgeMessage') )
                                     <span
-                                        class="alert alert-success text-center py-1 w-100 mb-0 animate__animated animate__zoomIn d-inline-block">
+                                        class="alert alert-danger text-center py-1 w-100 mb-0 animate__animated animate__zoomIn d-inline-block">
                                     <i class="fas fa-check-circle mr-1"></i>
                                     <strong>{{ session('badgeMessage') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                    @endif
+                    @if(  session('message'))
+                        <div class="row mt-1">
+                            <div class="col-12">
+                                {{--Badge Message--}}
+                                @if( session('message') )
+                                    <span
+                                        class="alert alert-success text-center py-1 w-100 mb-0 animate__animated animate__zoomIn d-inline-block">
+                                    <i class="fas fa-check-circle mr-1"></i>
+                                    <strong>{{ session('message') }}</strong>
                                 </span>
                                 @endif
                             </div>
@@ -64,6 +79,7 @@
                                 id="last_name" class="block mt-1 w-full" type="text" name="last_name"
                                 v-model="form_data.last_name"
                                 :value="old('last_name')"
+                                required
                                 autocomplete="last_name"/>
                             <x-input-error :messages="$errors->get('last_name')" class="mt-2"/>
                         </div>
@@ -148,6 +164,7 @@
                                        class="form-control"
                                        name="email"
                                        placeholder="Email"
+                                       required
                                        v-model="form_data.email">
                             </div>
                             <div class="my-1">
@@ -207,6 +224,7 @@
                                     name="password"
                                     placeholder="Password"
                                     v-model="form_data.password"
+                                    required
                                 >
                             </div>
                             <div class="my-1">
@@ -295,7 +313,7 @@
                         <div class="col-6 col-lg-3 mb-1" v-if="form_data.type === 'student'">
                             <x-input-label for="school_name" :value="__('School name')"/>
                             <x-text-input
-                                id="school_name" class="block mt-1 w-full " type="text"
+                                id="school_name" class="block mt-1 w-full" type="text"
                                 v-model="form_data.school_name"
                                 name="school_name" autocomplete="school_name"/>
                             <x-input-error :messages="$errors->get('school_name')" class="mt-2"/>
@@ -303,7 +321,7 @@
                         <div class="col-6 col-lg-3 mb-1" v-if="form_data.type === 'student'">
                             <x-input-label for="grade" :value="__('Grade')"/>
                             <x-text-input
-                                id="grade" class="block mt-1 w-full " type="text"
+                                id="grade" class="block mt-1 w-full" type="text"
                                 v-model="form_data.grade"
                                 name="grade" autocomplete="grade"/>
                             <x-input-error :messages="$errors->get('grade')" class="mt-2"/>
@@ -311,7 +329,7 @@
                         <div class="col-6 col-lg-3 mb-1" v-if="form_data.type === 'student'">
                             <x-input-label for="background" :value="__('Background')"/>
                             <x-text-input
-                                id="background" class="block mt-1 w-full " type="text"
+                                id="background" class="block mt-1 w-full" type="text"
                                 v-model="form_data.background"
                                 name="background"
                                 autocomplete="background"/>
@@ -320,7 +338,7 @@
                         <div class="col-6 col-lg-3 mb-1" v-if="form_data.type === 'student'">
                             <x-input-label for="special_need" :value="__('Special need')"/>
                             <x-text-input
-                                id="special_need" class="block mt-1 w-full " type="text"
+                                id="special_need" class="block mt-1 w-full" type="text"
                                 v-model="form_data.special_need"
                                 name="special_need"
                                 autocomplete="special_need"/>
@@ -329,7 +347,7 @@
                         <div class="col-6 col-lg-3 mb-1" v-if="form_data.type === 'student'">
                             <x-input-label for="allergies" :value="__('Allergies')"/>
                             <x-text-input
-                                id="allergies" class="block mt-1 w-full " type="text"
+                                id="allergies" class="block mt-1 w-full" type="text"
                                 v-model="form_data.allergies"
                                 name="allergies" autocomplete="allergies"/>
                             <x-input-error :messages="$errors->get('allergies')" class="mt-2"/>
@@ -337,7 +355,7 @@
                         <div class="col-6 col-lg-3 mb-1">
                             <x-input-label for="notes" :value="__('Notes')"/>
                             <x-text-input
-                                id="notes" class="block mt-1 w-full " type="text"
+                                id="notes" class="block mt-1 w-full" type="text"
                                 v-model="form_data.notes"
                                 name="notes" autocomplete="notes"/>
                             <x-input-error :messages="$errors->get('notes')" class="mt-2"/>
@@ -345,7 +363,7 @@
                         <div class="col-6 col-lg-3 mb-1">
                             <x-input-label for="source" :value="__('Source')"/>
                             <x-text-input
-                                id="source" class="block mt-1 w-full " type="text"
+                                id="source" class="block mt-1 w-full" type="text"
                                 v-model="form_data.source"
                                 name="source" autocomplete="source"/>
                             <x-input-error :messages="$errors->get('source')" class="mt-2"/>
@@ -353,7 +371,7 @@
                         <div class="col-6 col-lg-3 mb-1">
                             <x-input-label for="customer_number" :value="__('Customer number')"/>
                             <x-text-input
-                                id="customer_number" class="block mt-1 w-full " type="text"
+                                id="customer_number" class="block mt-1 w-full" type="text"
                                 v-model="form_data.customer_number"
                                 name="customer_number"
                                 autocomplete="customer_number"/>

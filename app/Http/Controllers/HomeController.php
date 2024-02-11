@@ -51,8 +51,21 @@ class HomeController extends Controller
      * */
     public function dashboard()
     {
+        $user = Auth::getUser();
 
-        return view('pages.dashboard');
+        if ($user->hasRole('teacher')) {
+            return view('home.teacher', compact('user'));
+        }
+
+        if ($user->hasRole('parent')) {
+            return view('home.parent', compact('user'));
+
+        }
+
+        if ($user->hasRole('student')) {
+            return view('home.student', compact('user'));
+        }
+//        return view('pages.dashboard');
     }
 
     /*

@@ -1,4 +1,5 @@
 <script>
+
 export default {
     props:{
       showAllLessons:{
@@ -19,7 +20,7 @@ export default {
     methods: {
         initCalendar() {
             const calendarEl = document.getElementById('lessons-calendar');
-            this.calendar = new FullCalendar.Calendar(calendarEl, {
+            this.calendar = new Calendar(calendarEl, {
                 initialView: 'dayGridWeek',
                 selectable: true,
                 headerToolbar: {
