@@ -3,7 +3,6 @@
     <script></script>
 @endpush
 
-{{--todo - make state an selected options input--}}
 
 <div class="row my-2" id="vue-app">
     <div class="col">
