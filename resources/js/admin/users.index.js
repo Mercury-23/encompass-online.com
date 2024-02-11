@@ -8,8 +8,6 @@ import Inputmask from 'inputmask';
 
 import {initUsersTable} from "../utils.js";
 
-let $table = $('#users-table');
-initUsersTable('all', $table);
 
 const vueApp = createApp({
     data() {
@@ -69,18 +67,6 @@ const vueApp = createApp({
 
     },
     methods: {
-        EventHandler() {
-            let start = moment($('#evtStart').val()).format('YYYY-MM-DDTHH:mm')
-            let end = moment($('#evtEnd').val()).format('YYYY-MM-DDTHH:mm')
-            let title = $('#eventTitle').val()
-            // this.calendar.render()
-            this.calendar.addEvent({
-                title: title, // a property!
-                start: start, // a property!
-                end: end // a property! ** see important note below about 'end' **
-            })
-            $('#teacher-calendar-modal').modal('hide');
-        },
         /*
         |--------------------------------------------------------------------------
         | For Select And Preview Image
@@ -96,28 +82,6 @@ const vueApp = createApp({
                 let reader = new FileReader();
                 reader.onload = (e) => {
                     this.previewImage = e.target.result;
-                };
-                reader.readAsDataURL(file[0]);
-                this.$emit("input", file[0]);
-            }
-        },
-
-        /*
-        |--------------------------------------------------------------------------
-        | For Select And Preview Instrument Image
-        |--------------------------------------------------------------------------
-        */
-
-        select_instr_image() {
-            this.$refs.instr_file.click();
-        },
-        pick_instr_file() {
-            let input = this.$refs.instr_file;
-            let file = input.files;
-            if (file && file[0]) {
-                let reader = new FileReader();
-                reader.onload = (e) => {
-                    this.preview_instr_image = e.target.result;
                 };
                 reader.readAsDataURL(file[0]);
                 this.$emit("input", file[0]);
@@ -337,6 +301,7 @@ const vueApp = createApp({
         renderTags() {
             console.log(event)
         },
+
         save() {
             this.form_data.inActive = $('#inActive').val()
             this.form_data.enrollment = $('#enrollment').val()
@@ -352,30 +317,19 @@ const vueApp = createApp({
     },
 
     mounted() {
+
         jQuery.noConflict();
         jQuery(document).ready(function($) {
             const phoneMask = '# (###) ###-####';
             Inputmask({"mask": phoneMask, placeholder: "#"}).mask($("#home_phone"));
             Inputmask({"mask": phoneMask, placeholder: "#"}).mask($("#cell_phone"));
             Inputmask({"mask": "##/##/####", placeholder: "#"}).mask($(".date_input"));
+
+            let $table = $('#users-table');
+            initUsersTable('all', $table);
+
         });
 
-
-        // const calendarEl = document.getElementById('teacher-calendar');
-        // this.calendar = new FullCalendar.Calendar(calendarEl, {
-        //     initialView: 'dayGridMonth',
-        //     selectable: true,
-        //     select: (e) => {
-        //         $('#teacher-calendar-modal').find('#evtStart').val(moment(e.start).format('YYYY-MM-DD'));
-        //         $('#teacher-calendar-modal').find('#evtEnd').val(moment(e.end).format('YYYY-MM-DD'));
-        //         $('#teacher-calendar-modal').modal('show');
-        //     },
-        //     events: this.Events
-        // });
-        // this.calendar.render();
-
-
-        $('#submit_event').on('click', this.EventHandler)
     },
 });
 
