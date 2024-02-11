@@ -5,13 +5,22 @@
 
 import {createApp} from 'vue';
 import Inputmask from 'inputmask';
-import Swal from "sweetalert2";
 
 import {initUsersTable} from "../utils.js";
-
 const vueApp = createApp({
     data() {
+        // init Calendar
+        let Events = [
+            { // this object will be "parsed" into an Event Object
+                title: 'The Title', // a property!
+                start: '2023-12-20', // a property!
+                end: '2023-12-22' // a property! ** see important note below about 'end' **
+            }
+        ]
+
         return {
+            Events,
+            calendar: '',
             form_data: {
                 tags: [],
                 type:'student'
@@ -25,6 +34,7 @@ const vueApp = createApp({
             role: 'student',
             password: '',
             address: '',
+            bio: '',
 
             /* update user */
             edit_first_name: '',
@@ -33,6 +43,16 @@ const vueApp = createApp({
             edit_role: 'student',
             edit_password: '',
             edit_address: '',
+            edit_bio: '',
+
+            /* Create instrument */
+            instr_name: '',
+            hour_rate: '',
+
+            /* Edit instrument */
+            edit_instr_name: "",
+            edit_hourly_rate: "",
+
 
             /* User data object */
             id: '',
@@ -42,8 +62,8 @@ const vueApp = createApp({
             /* Preview Instrument image */
             preview_instr_image: '{{ URL::to('/') }}/assets/images/upload.png'
         }
-    },
 
+    },
     methods: {
         /*
         |--------------------------------------------------------------------------
@@ -53,7 +73,6 @@ const vueApp = createApp({
         selectImage() {
             this.$refs.fileInput.click();
         },
-
         pickFile() {
             let input = this.$refs.fileInput;
             let file = input.files;
@@ -67,105 +86,6 @@ const vueApp = createApp({
             }
         },
 
-        saveRecord(e) {
-            let that = this;
-            const password = document.getElementById('password').value;
-            const phone = document.getElementById('phone').value;
-
-            $(".spinner").removeClass('d-none');
-
-            // todo - Youcef, save the image...
-
-            let form_data = new FormData();
-            form_data.append('first_name', that.first_name);
-            form_data.append('last_name', that.last_name);
-            form_data.append('phone_number', phone);
-            form_data.append('email', that.email);
-            form_data.append('password', password);
-            form_data.append('type', that.role);
-            form_data.append('address', that.address);
-
-            axios.post('/user', form_data).then(response => {
-                /* Stop spinner */
-                $(".spinner").addClass('d-none');
-
-                if (response.data.status_code >= 200 && response.data.status_code <= 299) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Success",
-                        text: "Operation performed successfully!",
-                    });
-
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 1000);
-                } else {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: response.data.message,
-                    });
-                }
-
-                // todo - refresh page, fix this, do better
-            }).catch((e) => {
-                console.log(e);
-                $(".spinner").addClass('d-none');
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
-            })
-        },
-
-        /* Store updated data */
-        updateRecord() {
-            let that = this;
-            const edit_phone_number = document.getElementById('edit_phone').value;
-
-            $(".spinner").removeClass('d-none');
-
-            axios.patch('/user', {
-                id: that.id,
-                first_name: that.edit_first_name,
-                last_name: that.edit_last_name,
-                email: that.edit_email,
-                type: that.edit_role,
-                phone_number: edit_phone_number
-            }).then(response => {
-                /* Stop spinner */
-                $(".spinner").addClass('d-none');
-
-                if (response.data.status_code >= 200 && response.data.status_code <= 299) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Success",
-                        text: "Record updated successfully!",
-                    });
-                    // todo - refresh page, fix this, do better
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 1000);
-                } else {
-                    console.log(response);
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "Some error",
-                    });
-                }
-            }).catch((e) => {
-                console.log(e);
-                $(".spinner").addClass('d-none');
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
-            })
-        },
-
         renderTags() {
             console.log(event)
         },
@@ -176,6 +96,7 @@ const vueApp = createApp({
             this.form_data.home_phone = $('#home_phone').val()
             this.form_data.cell_phone = $('#cell_phone').val()
 
+
             axios.post('/profile', this.form_data).then((res) => {
                 window.location.reload();
             })
@@ -183,6 +104,7 @@ const vueApp = createApp({
     },
 
     mounted() {
+
         jQuery.noConflict();
         jQuery(document).ready(function($) {
             const phoneMask = '# (###) ###-####';
@@ -192,7 +114,9 @@ const vueApp = createApp({
 
             let $table = $('#users-table');
             initUsersTable('all', $table);
+
         });
+
     },
 });
 
