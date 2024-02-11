@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Addresses;
+use App\Models\Info;
 use App\Models\ShortBios;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -109,7 +110,11 @@ class UserController extends Controller
             $n_user->email = $request->email;
             $n_user->type = $request->type;
             $n_user->password = Hash::make($request->password);
-            $n_user->information = [
+            $n_user->information =
+            $n_user->save();
+            $info = new Info();
+            $info->user_id= $n_user->id;
+            $info->information =  [
                 "tags" => $request->tags,
                 "gender" => $request->gender ? $request->gender : 'student',
                 "type" => $request->type,
@@ -134,7 +139,7 @@ class UserController extends Controller
                 "allergies" => $request->allergies,
                 "notes" => $request->notes,
             ];
-            $n_user->save();
+            $info->save();
             $addresses = new Addresses();
             $addresses->user_id = $n_user->id;
                 $addresses->address = [
