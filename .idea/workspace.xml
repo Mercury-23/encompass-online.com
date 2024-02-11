@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0581469-84c1-4647-ac5a-ea37bafee2bc" name="main" comment="Syncing with Youcef">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+    <list default="true" id="66bc0643-745b-46ce-b9ef-b40851ff7741" name=" finish admin users page" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
     </list>
     <list id="895c67b6-23cf-4d86-82c6-dbb734b96518" name="Changes" comment="" />
     <list id="e0581469-84c1-4647-ac5a-ea37bafee2bc" name="main" comment="Syncing with Youcef" />
@@ -41,7 +39,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ae5443a0c78cf49a0593b3c66dd955e2939b9f3b" />
+        <entry key="$PROJECT_DIR$" value="c3bcaafd9a32e9e65b8a5d1380480a4099b6fef7" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,8 +54,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="finish-admin-users" />
+                    <option name="lastUsedInstant" value="1707618795" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="youcef-branch" />
-                    <option name="lastUsedInstant" value="1707616631" />
+                    <option name="lastUsedInstant" value="1707618794" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
@@ -219,7 +221,7 @@
     "WebServerToolWindowPanel.toolwindow.show.date": "false",
     "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
     "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "git-widget-placeholder": "youcef-branch",
+    "git-widget-placeholder": "finish-admin-users",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "18.17.1",
     "javascript.nodejs.core.library.typings.version": "18.17.19",
@@ -232,7 +234,7 @@
     "nodejs_interpreter_path": "wsl://Ubuntu-22.04@/home/cmac/.nvm/versions/node/v18.17.1/bin/node",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "tasks.timeTracking",
-    "start.from.branch": "origin/youcef",
+    "start.from.branch": "origin/main",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   },
@@ -291,8 +293,6 @@
       <updated>1707616626515</updated>
       <workItem from="1707616626736" duration="169000" />
     </task>
-    <option name="localTasksCounter" value="12" />
-
     <task id="LOCAL-00009" summary="test push">
       <created>1707615727204</created>
       <option name="number" value="00009" />
@@ -300,6 +300,18 @@
       <option name="project" value="LOCAL" />
       <updated>1707615727204</updated>
     </task>
+    <task active="true" id="LOCAL-00012" summary="finish admin users page">
+      <branch name="origin/main" repository="\\wsl.localhost\Ubuntu-22.04\home\cmac\code\encompass-online.com" original="true" />
+      <branch name="finish-admin-users" repository="\\wsl.localhost\Ubuntu-22.04\home\cmac\code\encompass-online.com" />
+      <changelist id="66bc0643-745b-46ce-b9ef-b40851ff7741" name=" finish admin users page" comment="" />
+      <created>1707618756022</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707618793390</updated>
+      <workItem from="1707618794374" duration="6000" />
+    </task>
+    <option name="localTasksCounter" value="13" />
     <option name="clearContext" value="false" />
     <servers />
   </component>
