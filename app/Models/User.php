@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Lesson;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class User extends Authenticatable
 {
@@ -37,6 +38,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $appends = [
+        'information',
+        'Address'
+    ];
+
     /**
      * The attributes that should be cast.
      *
@@ -45,7 +51,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'information'=> 'object'
+        'information' => 'object'
     ];
 
     /**
@@ -83,5 +89,19 @@ class User extends Authenticatable
     public function lessons()
     {
         return $this->hasMany(Lesson::class, 'teacher_id');
+    }
+
+    public function getInformationAttribute()
+    {
+
+        return Info::where('user_id', $this->id)->first() ?? (object)[];
+
+    }
+
+    public function getAddressAttribute()
+    {
+
+        return Addresses::where('user_id', $this->id)->first() ?? (object)[];
+
     }
 }
