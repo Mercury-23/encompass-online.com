@@ -6,13 +6,7 @@
 
 import Swal from 'sweetalert2';
 import moment from 'moment';
-import axios from 'axios';
-import $ from 'jquery';
 import DataTable from 'datatables.net-dt';
-
-
-// Initialize DataTables
-// initUsersTable('teacher');
 
 const deleteButton = `
             <button class="btn btn-danger btn-sm py-1 px-4 bg-red-500 hover:bg-red-700 text-white delete">
@@ -63,32 +57,26 @@ function initUsersTable(type, $table) {
     // Get the data
     axios.get(url).then(res => {
         const {data} = res;
-        console.log(res)
-
         // Format the data
         const tableData = data.map(n => {
             return {
                 id: n.id,
-                name: n.first_name?n.first_name+' '+n.last_name:n.name,
+                name: n.first_name ? n.first_name + ' ' + n.last_name : n.name,
                 type: n.type,
                 email: n.email,
                 created: moment(n.created_at).format('MMMM Do YYYY, h:mm:ss a'),
             }
         });
-
         const columns = [
             {data: 'id'},
-
             {data: 'name'},
             {
                 data: null,
                 defaultContent: typeIcon,
                 orderable: false
             },
-
             {data: 'type'},
             {data: 'email'},
-
             {
                 data: 'created',
                 width: '200px',
@@ -102,89 +90,83 @@ function initUsersTable(type, $table) {
         ];
 
         // Initialize DataTables
-        $table.DataTable({
-            data: tableData,
-            columns,
-            columnDefs: [
-                {
-                    targets: [0],
-                    visible: false,
-                    searchable: false
-                },
-                {
-                    targets: [2],
-                    className: 'text-center'
-                },
-                {
-                    targets: [3],
-                    className: 'text-center'
-                },
-                {
-                    targets: [4],
-                    className: 'text-center'
-                },
-                // Created at
-                {
-                    targets: 5,
-                    // width: '200px',
-                    className: 'text-center no-wrap p-1'
-                },
+        let table = new DataTable(
+            // '#users-table',
+            $table,
+            {
+                data: tableData,
+                columns,
+                columnDefs: [
+                    {
+                        targets: [0],
+                        // visible: false,
+                        searchable: false
+                    },
+                    {
+                        targets: [2],
+                        className: 'text-center'
+                    },
+                    {
+                        targets: [3],
+                        className: 'text-center'
+                    },
+                    {
+                        targets: [4],
+                        className: 'text-center'
+                    },
+                    // Created at
+                    {
+                        targets: 5,
+                        // width: '200px',
+                        className: 'text-center no-wrap p-1'
+                    },
+                    {
+                        targets: [6],
+                        className: 'text-center'
+                    }
+                ],
+            });
 
+        // Delete button handler
+        $table.on('click', '.delete', function (e) {
+            let $row = $(this).closest('tr');
+            let id = $row.find('td:first-child').text();
 
-                {
-                    targets: [6],
-                    className: 'text-center'
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true, // Show cancel button
+                confirmButtonColor: '#3085d6', // Blue button
+                cancelButtonColor: '#d33', // Red button
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Delete the instrument
+                    axios.delete(DELETE_URL + id).then(res => {
+                        console.log(res);
+                        Swal.fire({
+                            title: 'Deleted!',
+                            text: 'User deleted',
+                            icon: 'success',
+                        });
+
+                        // Remove the row from the table
+                        table.row($row).remove().draw();
+                    });
                 }
-            ],
+            });
         });
     }).catch((e) => {
-        console.log(e);
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "Something went wrong!",
         });
     });
-
-    // Delete button handler
-    $table.on('click', '.delete', function (e) {
-        let $row = $(this).closest('tr');
-        let id = $row.find('td:first-child').text();
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true, // Show cancel button
-            confirmButtonColor: '#3085d6', // Blue button
-            cancelButtonColor: '#d33', // Red button
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Delete the instrument
-                axios.delete(DELETE_URL + id).then(res => {
-                    console.log(res);
-                    Swal.fire({
-                        title: 'Deleted!',
-                        text: 'User deleted',
-                        icon: 'success',
-                    });
-                    // Remove the row from the table
-                    $table.DataTable().row($row).remove().draw();
-                }).catch((e) => {
-                    console.log(e);
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "Something went wrong!",
-                    });
-                });
-            }
-        });
-    });
 }
 
 export {initUsersTable};
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
