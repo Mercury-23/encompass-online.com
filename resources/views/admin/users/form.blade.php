@@ -265,7 +265,7 @@
                                        type="password"
                                        class="form-control"
                                        name="password"
-                                       placeholder="Password" v-model="form_data.Password"
+                                       placeholder="Password" v-model="form_data.password"
                                 >
                             </div>
                             <div class="my-1">
