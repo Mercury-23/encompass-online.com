@@ -14,4 +14,15 @@ class Addresses extends Model
     protected $fillable = [
         'user_id', 'address'
     ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'address'=> 'object'
+    ];
+
+
 }

@@ -1,16 +1,4 @@
-{{--Dashboard--}}
-
-@push('css')
-    <style>
-    </style>
-@endpush
-
 @push('js')
-
-    {{--todo - remove, not using--}}
-    {{--    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"--}}
-    {{--            integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="--}}
-    {{--            crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
 
     <script src="//cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -69,17 +57,17 @@
                                                     </div>
                                                     <div class="flex">
                                                         <div class="flex flex-col text-center font-bold">
-                                                            <p class="dark:text-gray-400 text-gray-500 text-xs">
+                                                            <p class=" text-gray-500 text-xs">
                                                                 Guitar</p>
                                                             <span>44</span>
                                                         </div>
                                                         <div class="flex flex-col text-center font-bold">
-                                                            <p class="dark:text-gray-400 text-gray-500 text-xs">
+                                                            <p class=" text-gray-500 text-xs">
                                                                 Singing</p>
                                                             <span>56</span>
                                                         </div>
                                                         <div class="flex flex-col text-center font-bold">
-                                                            <p class="dark:text-gray-400 text-gray-500 text-xs">
+                                                            <p class=" text-gray-500 text-xs">
                                                                 Drum</p>
                                                             <span>20</span>
                                                         </div>

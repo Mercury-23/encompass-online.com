@@ -109,7 +109,7 @@ class UserController extends Controller
             $n_user->email = $request->email;
             $n_user->type = $request->type;
             $n_user->password = Hash::make($request->password);
-            $n_user->informations = [
+            $n_user->information = [
                 "tags" => $request->tags,
                 "gender" => $request->gender ? $request->gender : 'student',
                 "type" => $request->type,
@@ -135,6 +135,17 @@ class UserController extends Controller
                 "notes" => $request->notes,
             ];
             $n_user->save();
+            $addresses = new Addresses();
+            $addresses->user_id = $n_user->id;
+                $addresses->address = [
+                    "address_1" => $request->address_1,
+                    "address_2" => $request->address_2,
+                    "city" => $request->city,
+                    "state" => $request->state,
+                    "postal_code" => $request->postal_code,
+                    "country" => $request->country,
+                ];
+                $addresses->save();
             DB::commit();
             return  response()->json([
                 'message'=>'The new user has been created successfully'
@@ -245,7 +256,6 @@ class UserController extends Controller
     {
 
         $auth = Auth::user();
-        // todo - this needs to only by allowed by admin
 
         if ($auth->type !== 'admin') {
             return response()->json([
