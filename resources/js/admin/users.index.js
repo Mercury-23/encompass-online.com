@@ -5,24 +5,13 @@
 
 import {createApp} from 'vue';
 import Inputmask from 'inputmask';
+import Swal from "sweetalert2";
 
 import {initUsersTable} from "../utils.js";
 
-
 const vueApp = createApp({
     data() {
-        // init Calendar
-        let Events = [
-            { // this object will be "parsed" into an Event Object
-                title: 'The Title', // a property!
-                start: '2023-12-20', // a property!
-                end: '2023-12-22' // a property! ** see important note below about 'end' **
-            }
-        ]
-
         return {
-            Events,
-            calendar: '',
             form_data: {
                 tags: [],
                 type:'student'
@@ -36,7 +25,6 @@ const vueApp = createApp({
             role: 'student',
             password: '',
             address: '',
-            bio: '',
 
             /* update user */
             edit_first_name: '',
@@ -45,16 +33,6 @@ const vueApp = createApp({
             edit_role: 'student',
             edit_password: '',
             edit_address: '',
-            edit_bio: '',
-
-            /* Create instrument */
-            instr_name: '',
-            hour_rate: '',
-
-            /* Edit instrument */
-            edit_instr_name: "",
-            edit_hourly_rate: "",
-
 
             /* User data object */
             id: '',
@@ -64,8 +42,8 @@ const vueApp = createApp({
             /* Preview Instrument image */
             preview_instr_image: '{{ URL::to('/') }}/assets/images/upload.png'
         }
-
     },
+
     methods: {
         /*
         |--------------------------------------------------------------------------
@@ -75,6 +53,7 @@ const vueApp = createApp({
         selectImage() {
             this.$refs.fileInput.click();
         },
+
         pickFile() {
             let input = this.$refs.fileInput;
             let file = input.files;
@@ -105,7 +84,6 @@ const vueApp = createApp({
             form_data.append('password', password);
             form_data.append('type', that.role);
             form_data.append('address', that.address);
-            form_data.append('bio', that.bio);
 
             axios.post('/user', form_data).then(response => {
                 /* Stop spinner */
@@ -139,22 +117,6 @@ const vueApp = createApp({
                     text: "Something went wrong!",
                 });
             })
-        },
-
-        /* Edit user popup */
-        editUserPopup(data) {
-            let that = this;
-
-            that.userData = data;
-            that.id = that.userData.id;
-            that.edit_first_name = that.userData.first_name;
-            that.edit_last_name = that.userData.last_name;
-            that.edit_email = that.userData.email;
-            that.edit_role = that.userData.type;
-            $("#edit_phone").val(that.userData.phone_number);
-            // that.edit_address = that.userData.address.address;
-            // that.edit_bio = that.userData.bio.short_bio;
-            $("#editUser").modal("show");
         },
 
         /* Store updated data */
@@ -204,100 +166,6 @@ const vueApp = createApp({
             })
         },
 
-        /* Store instrument */
-        saveInstrument() {
-            let that = this;
-            $(".spinner").removeClass('d-none');
-
-            axios.post('/instrument', {
-                name: that.instr_name,
-                hourly_rate: that.hour_rate,
-            }).then(response => {
-
-                /* Stop spinner */
-                $(".spinner").addClass('d-none');
-
-                if (response.data.status_code >= 200 && response.data.status_code <= 299) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Success",
-                        text: "Record Added successfully!",
-                    });
-                    // todo - refresh page, fix this, do better
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 1000);
-                } else {
-                    console.log(response);
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "Some error",
-                    });
-                }
-            }).catch((e) => {
-                console.log(e);
-                $(".spinner").addClass('d-none');
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
-            });
-        },
-
-        /* Update Instrument */
-        editInstrumentPopup(data) {
-            let that = this;
-            that.instrumentData = data;
-            that.edit_instr_name = data.name;
-            that.edit_hourly_rate = data.hourly_rate;
-
-            $("#editInstrument").modal("show");
-        },
-
-        /* Store updated data */
-        updateInstrument() {
-            let that = this;
-            $(".spinner").removeClass('d-none');
-
-            axios.patch('/instrument', {
-                id: that.instrumentData.id,
-                name: that.edit_instr_name,
-                hourly_rate: that.edit_hourly_rate,
-            }).then(response => {
-                /* Stop spinner */
-                $(".spinner").addClass('d-none');
-
-                if (response.data.status_code >= 200 && response.data.status_code <= 299) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Success",
-                        text: "Record updated successfully!",
-                    });
-                    // todo - refresh page, fix this, do better
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 1000);
-                } else {
-                    console.log(response);
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "Some error",
-                    });
-                }
-            }).catch((e) => {
-                console.log(e);
-                $(".spinner").addClass('d-none');
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                });
-            })
-        },
-
         renderTags() {
             console.log(event)
         },
@@ -308,8 +176,6 @@ const vueApp = createApp({
             this.form_data.home_phone = $('#home_phone').val()
             this.form_data.cell_phone = $('#cell_phone').val()
 
-            console.log(this.form_data)
-
             axios.post('/profile', this.form_data).then((res) => {
                 window.location.reload();
             })
@@ -317,7 +183,6 @@ const vueApp = createApp({
     },
 
     mounted() {
-
         jQuery.noConflict();
         jQuery(document).ready(function($) {
             const phoneMask = '# (###) ###-####';
@@ -327,9 +192,7 @@ const vueApp = createApp({
 
             let $table = $('#users-table');
             initUsersTable('all', $table);
-
         });
-
     },
 });
 
