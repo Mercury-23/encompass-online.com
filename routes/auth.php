@@ -10,9 +10,6 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\ParentController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -86,8 +83,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/all/students', [AdminController::class, 'allStudents'])
         ->name('admin.allStudents');
 
-
-
     /* ------------------------------------------------ */
     /*  ---------------- Admin Routes ----------------- */
     /*------------------------------------------------- */
@@ -113,7 +108,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/admin/lessons/{id}', [AdminController::class, 'lessonsDestroy'])
         ->name('admin.lessons.destroy');
 
-
     /* ------------------------------------------------ */
     /*  ---------------- Invoices Routes -------------- */
     /*------------------------------------------------- */
@@ -127,7 +121,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         ->name('admin.invoices.destroy');
 
     /* ------------------------------------------------ */
-    /*  ---------------- Profile Routes --------------- */
+    /*  - Users, Teachers, Parents, Students Routes --- */
     /*------------------------------------------------- */
     Route::get('/admin/users', [AdminController::class, 'users'])
         ->name('admin.users.index');
@@ -135,10 +129,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
         ->name('admin.teachers.index');
     Route::get('/admin/parents', [AdminController::class, 'parents'])
         ->name('admin.parents.index');
-
     Route::get('/admin/students', [AdminController::class, 'students'])
         ->name('admin.students.index');
-
 
     /* ------------------------------------------------ */
     /*  ---------------- Instruments Routes ----------- */
@@ -151,7 +143,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
         ->name('admin.instruments.update');
     Route::delete('/admin/instruments/{id}', [AdminController::class, 'instrumentsDestroy'])
         ->name('admin.instruments.destroy');
-
 
     /* ------------------------------------------------ */
 
@@ -167,15 +158,21 @@ Route::middleware(['auth', 'admin'])->group(function () {
     /*  ---------------- User Routes ------------------ */
     /*------------------------------------------------- */
 //    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::post('/user', [UserController::class, 'store'])->name('user.store');
-    Route::patch('/user', [UserController::class, 'update'])->name('user.update');
-    Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
-    Route::post('/profile', [UserController::class, 'create']) ->name('profile.create');
+    Route::post('/user', [UserController::class, 'store'])
+        ->name('user.store');
+    Route::patch('/user', [UserController::class, 'update'])
+        ->name('user.update');
+    Route::delete('/user/{id}', [UserController::class, 'destroy'])
+        ->name('user.destroy');
+    Route::post('/profile', [UserController::class, 'create'])
+        ->name('profile.create');
     //Route::post('/profile/get_users_by', [ProfileController::class, 'get_users_by']) ->name('profile.get_users_by');
 });
 
-/**
-    d
- */
+/*
+ * Teacher ONLY
+ * */
 Route::get('/teacher_lessons', [\App\Http\Controllers\LessonController::class, 'get_teacher_lessons']);
 Route::get('/all_lessons', [\App\Http\Controllers\LessonController::class, 'get_all_lessons']);
+
+

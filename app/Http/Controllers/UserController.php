@@ -94,12 +94,12 @@ class UserController extends Controller
             "last_name" => 'required',
             "email" => 'required|unique:users,email',
             "password" => 'required',
-            "type" => 'required',
-            "address_1" => 'required',
-            "city" => 'required',
-            "state" => 'required',
-            "postal_code" => 'required',
-            "country" => 'required',
+//            "type" => 'required',
+//            "address_1" => 'required',
+//            "city" => 'required',
+//            "state" => 'required',
+//            "postal_code" => 'required',
+//            "country" => 'required',
         ]);
         DB::beginTransaction();
         $n_user = new User();
