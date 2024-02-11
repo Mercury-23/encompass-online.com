@@ -4,28 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0581469-84c1-4647-ac5a-ea37bafee2bc" name="main" comment="Save env">
-      <change afterPath="$PROJECT_DIR$/app/Models/Info.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2024_02_11_004349_create_infos_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin/admin-nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Addresses.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Addresses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Instrument.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Instrument.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/users.index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/users.index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/nav/admin-nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/nav/admin-nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/users.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
+    <list default="true" id="e0581469-84c1-4647-ac5a-ea37bafee2bc" name="main" comment="Syncing with Youcef">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
     </list>
     <list id="895c67b6-23cf-4d86-82c6-dbb734b96518" name="Changes" comment="" />
     <list id="ce5a0091-8b10-4598-86dd-1575b7b0d179" name="idea" comment="" />
@@ -310,7 +290,7 @@
       <workItem from="1707358280598" duration="157000" />
       <workItem from="1707358445839" duration="3053000" />
       <workItem from="1707363877766" duration="2837000" />
-      <workItem from="1707608918689" duration="3589000" />
+      <workItem from="1707608918689" duration="3621000" />
     </task>
     <task id="LOCAL-00002" summary=" moving repo">
       <option name="closed" value="true" />
@@ -360,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707609484454</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Syncing with Youcef">
+      <option name="closed" value="true" />
+      <created>1707612563592</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707612563592</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <option name="clearContext" value="false" />
     <servers />
   </component>
@@ -398,7 +386,8 @@
     <MESSAGE value="remove .env from gitignore" />
     <MESSAGE value="idea files" />
     <MESSAGE value="Save env" />
-    <option name="LAST_COMMIT_MESSAGE" value="Save env" />
+    <MESSAGE value="Syncing with Youcef" />
+    <option name="LAST_COMMIT_MESSAGE" value="Syncing with Youcef" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
