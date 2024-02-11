@@ -343,7 +343,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-success bg-success btn-sm px-4 float-right save-btn" >
+                    <button type="submit" class="btn btn-success bg-success btn-sm px-4 float-right save-btn">
                         <i class="fas fa-save mr-1"></i>
                         Save
                     </button>
