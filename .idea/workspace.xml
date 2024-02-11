@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66bc0643-745b-46ce-b9ef-b40851ff7741" name=" finish admin users page" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+
+    <list default="true" id="e0581469-84c1-4647-ac5a-ea37bafee2bc" name="main" comment="create user controller">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
     </list>
     <list id="895c67b6-23cf-4d86-82c6-dbb734b96518" name="Changes" comment="" />
-    <list id="e0581469-84c1-4647-ac5a-ea37bafee2bc" name="main" comment="Syncing with Youcef" />
+    <list id="ce5a0091-8b10-4598-86dd-1575b7b0d179" name="idea" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +41,9 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="c3bcaafd9a32e9e65b8a5d1380480a4099b6fef7" />
+
+        <entry key="$PROJECT_DIR$" value="main" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,16 +58,16 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="finish-admin-users" />
-                    <option name="lastUsedInstant" value="1707618795" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="youcef-branch" />
-                    <option name="lastUsedInstant" value="1707618794" />
+                    <option name="branchName" value="dev" />
+                    <option name="lastUsedInstant" value="1707599067" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1707616630" />
+                    <option name="lastUsedInstant" value="1707357111" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="moving-repo" />
+                    <option name="lastUsedInstant" value="1706433657" />
                   </RecentBranch>
                 </list>
               </option>
@@ -72,13 +76,6 @@
           </list>
         </option>
       </RecentBranches>
-    </option>
-  </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
@@ -211,44 +208,37 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.laravel-idea.update-module-directories": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "git-widget-placeholder": "finish-admin-users",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "18.17.1",
-    "javascript.nodejs.core.library.typings.version": "18.17.19",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "//wsl.localhost/Ubuntu-22.04/home/cmac/code/encompass-online.com",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "wsl://Ubuntu-22.04@/home/cmac/.nvm/versions/node/v18.17.1/bin/node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "tasks.timeTracking",
-    "start.from.branch": "origin/main",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.laravel-idea.update-module-directories&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.17.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.17.19&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl.localhost/Ubuntu-22.04/home/cmac/code/encompass-online.com&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;wsl://Ubuntu-22.04@/home/cmac/.nvm/versions/node/v18.17.1/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;tasks.timeTracking&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="\\wsl.localhost\Ubuntu-22.04\home\cmac\code\encompass-online.com\resources\views\components" />
-    </key>
-  </component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
@@ -268,30 +258,91 @@
       <created>1694105283044</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1707616626515</updated>
+      <updated>1706433656387</updated>
       <workItem from="1706433632484" duration="24000" />
-      <workItem from="1707616080838" duration="545000" />
+    </task>
+    <task active="true" id="LOCAL-00001" summary="moving repo">
+      <branch name="main" repository="\\wsl.localhost\Ubuntu-22.04\home\cmac\code\encompass-online.com" original="true" />
+      <branch name="moving-repo" repository="\\wsl.localhost\Ubuntu-22.04\home\cmac\code\encompass-online.com" />
+      <changelist id="e0581469-84c1-4647-ac5a-ea37bafee2bc" name="main" comment="" />
+      <changelist id="ce5a0091-8b10-4598-86dd-1575b7b0d179" name="idea" comment="" />
+      <created>1706433639184</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706433656388</updated>
+      <workItem from="1706433656811" duration="173000" />
+      <workItem from="1706433842588" duration="126000" />
+      <workItem from="1706433975353" duration="27000" />
+      <workItem from="1706884311585" duration="561000" />
+      <workItem from="1706884884427" duration="109000" />
+      <workItem from="1706885001197" duration="1301000" />
+      <workItem from="1706887910986" duration="584000" />
+      <workItem from="1707119694941" duration="891000" />
+      <workItem from="1707296392740" duration="21000" />
+      <workItem from="1707353360700" duration="15000" />
+      <workItem from="1707357037340" duration="111000" />
+      <workItem from="1707357151588" duration="803000" />
+      <workItem from="1707358280598" duration="157000" />
+      <workItem from="1707358445839" duration="3053000" />
+      <workItem from="1707363877766" duration="2837000" />
+      <workItem from="1707608918689" duration="3621000" />
+    </task>
+    <task id="LOCAL-00002" summary=" moving repo">
+      <option name="closed" value="true" />
+      <created>1706433997245</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706433997245</updated>
+    </task>
+    <task id="LOCAL-00003" summary=" moving repo">
+      <option name="closed" value="true" />
+      <created>1707155394519</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707155394519</updated>
+    </task>
+    <task id="LOCAL-00004" summary="idea files">
+      <option name="closed" value="true" />
+      <created>1707358193086</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707358193086</updated>
     </task>
     <task id="LOCAL-00005" summary="idea files">
-      <changelist id="e0581469-84c1-4647-ac5a-ea37bafee2bc" name="main" comment="Syncing with Youcef" />
       <option name="closed" value="true" />
       <created>1707609286482</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1707616080579</updated>
-      <workItem from="1707616042784" duration="38000" />
+      <updated>1707609286482</updated>
     </task>
-    <task active="true" id="LOCAL-00011" summary="youcef branch">
-      <branch name="origin/youcef" repository="\\wsl.localhost\Ubuntu-22.04\home\cmac\code\encompass-online.com" original="true" />
-      <branch name="youcef-branch" repository="\\wsl.localhost\Ubuntu-22.04\home\cmac\code\encompass-online.com" />
-      <changelist id="bec55e20-51d6-4622-bf4d-2890d66241cd" name=" youcef branch" comment="" />
-      <created>1707616619228</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+    <task id="LOCAL-00006" summary="remove .env from gitignore">
+      <option name="closed" value="true" />
+      <created>1707609381087</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1707616626515</updated>
-      <workItem from="1707616626736" duration="169000" />
+      <updated>1707609381087</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Save env">
+      <option name="closed" value="true" />
+      <created>1707609484454</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707609484454</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Syncing with Youcef">
+      <option name="closed" value="true" />
+      <created>1707612563592</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707612563592</updated>
     </task>
     <task id="LOCAL-00009" summary="test push">
       <created>1707615727204</created>
@@ -300,18 +351,21 @@
       <option name="project" value="LOCAL" />
       <updated>1707615727204</updated>
     </task>
-    <task active="true" id="LOCAL-00012" summary="finish admin users page">
-      <branch name="origin/main" repository="\\wsl.localhost\Ubuntu-22.04\home\cmac\code\encompass-online.com" original="true" />
-      <branch name="finish-admin-users" repository="\\wsl.localhost\Ubuntu-22.04\home\cmac\code\encompass-online.com" />
-      <changelist id="66bc0643-745b-46ce-b9ef-b40851ff7741" name=" finish admin users page" comment="" />
-      <created>1707618756022</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+    <task id="LOCAL-00010" summary="create user">
+      <created>1707616232158</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1707618793390</updated>
-      <workItem from="1707618794374" duration="6000" />
+      <updated>1707616232158</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00011" summary="create user controller">
+      <created>1707618013090</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707618013090</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <option name="clearContext" value="false" />
     <servers />
   </component>
@@ -329,7 +383,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="youcef" />
                       </list>
                     </value>
                   </entry>
@@ -351,7 +405,9 @@
     <MESSAGE value="Save env" />
     <MESSAGE value="Syncing with Youcef" />
     <MESSAGE value="test push" />
-    <option name="LAST_COMMIT_MESSAGE" value="test push" />
+    <MESSAGE value="create user" />
+    <MESSAGE value="create user controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="create user controller" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
