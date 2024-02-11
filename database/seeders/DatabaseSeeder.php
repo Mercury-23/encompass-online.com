@@ -29,6 +29,28 @@ class DatabaseSeeder extends Seeder
             'email' => 'chrisnowlan321@gmail.com',
             'password' => '$2y$10$WsQg/YFGixkwLfJf4O8Lk.6o0ece8Meo9vFHdImNm5S0GxBCsya8C',
         ]);
+
+        User::factory()->create([
+            'name' => 'Chris Teacher',
+            'type' => 'teacher',
+            'email' => 'flipvollc@gmail.com',
+            'password' => '$2y$10$WsQg/YFGixkwLfJf4O8Lk.6o0ece8Meo9vFHdImNm5S0GxBCsya8C',
+        ]);
+
+        User::factory()->create([
+            'name' => 'Chris Parent',
+            'type' => 'parent',
+            'email' => 'parent@gmail.com',
+            'password' => '$2y$10$WsQg/YFGixkwLfJf4O8Lk.6o0ece8Meo9vFHdImNm5S0GxBCsya8C',
+        ]);
+
+        User::factory()->create([
+            'name' => 'Chris Student',
+            'type' => 'student',
+            'email' => 'student@gmail.com',
+            'password' => '$2y$10$WsQg/YFGixkwLfJf4O8Lk.6o0ece8Meo9vFHdImNm5S0GxBCsya8C',
+        ]);
+
         User::factory()->create([
             'name' => 'Cindy Rudd',
             'email' => 'cinboop@gmail.com',
