@@ -19,6 +19,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/utils.js',
 
+                'resources/js/admin/admin-nav.js',
                 'resources/js/admin/admin.index.js',
                 'resources/js/admin/instruments.js',
                 'resources/js/admin/invoices.js',

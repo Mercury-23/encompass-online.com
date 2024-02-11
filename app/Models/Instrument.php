@@ -13,6 +13,5 @@ class Instrument extends Model
 
     protected $fillable = [
         'name',
-        'hourly_rate',
     ];
 }

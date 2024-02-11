@@ -14,46 +14,6 @@
           integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-    <style>
-        .iti.iti--allow-dropdown.iti--show-flags {
-            width: 100% !important;
-        }
-
-        .iti {
-            display: inline !important;
-        }
-
-        #phone {
-            /*width: 100% !important;*/
-            /*padding-left: 50px !important;*/
-        }
-
-        #docs-data-table thead th {
-            text-align: center;
-            background-color: #f2f2f2;
-            font-weight: 600;
-        }
-
-        #docs-data-table tbody tr {
-            cursor: pointer;
-            border-bottom: 1px solid #b2a6a6;
-        }
-
-        #docs-data-table tbody tr.active-row {
-            background-color: #cfcece; /* Light grey background */
-            /*color: #333; !* Darker text color *!*/
-        }
-
-        #instruments-table_filter {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        #instruments-table_length select {
-            min-width: 4.5rem;
-            margin: 0 .8rem;
-        }
-    </style>
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.css"/>
     <link rel="stylesheet" href="/css/data-tables.css"/>
 
@@ -65,21 +25,17 @@
     <link rel="stylesheet" href="{{ url('css/_icons.css') }}">
     <link href="{{ asset('assets/styles/styles.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css"/>
-    <script src='//cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
 
     @vite(['resources/css/app.css'])
-
     @stack('css')
-
+    <style></style>
 </head>
 
-<body class="font-sans antialiased bg-gray-100"  >
+<body class="font-sans antialiased bg-gray-100">
 <div class="flex flex-col flex-1 relative">
 
     {{--Navigation--}}
-    <div>
-        @include('layouts.navigation')
-    </div>
+    @include('layouts.navigation')
 
     {{--Header--}}
     @if ( isset($header) )
@@ -91,32 +47,33 @@
     @endif
 
     {{--Main--}}
-    <main class="">
+    <main>
         {{ $slot }}
     </main>
 </div>
 
-{{--todo - this breaking navigation???--}}
-<script src="//code.jquery.com/jquery-3.7.1.min.js"></script>
+{{--<script src="//code.jquery.com/jquery-3.7.1.min.js"></script>--}}
+{{--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>--}}
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+{{--<script src="//cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"--}}
+{{--        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"--}}
+{{--        crossorigin="anonymous"></script>--}}
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"--}}
+{{--        crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"
-        crossorigin="anonymous"  referrerpolicy="no-referrer"></script>
+{{--<script src="//cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"--}}
+{{--        crossorigin="anonymous"  referrerpolicy="no-referrer"></script>--}}
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{--<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>--}}
 
 <script src="//cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 @vite(['resources/js/app.js'])
 @vite('resources/js/utils.js')
+
 @stack('js')
+
 </body>
 </html>

@@ -25,9 +25,6 @@ class User extends Authenticatable
         'email',
         'type',
         'password',
-        'phone_iso2',
-        'phone_dial_code',
-        'phone_number',
     ];
 
     /**
@@ -48,7 +45,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'informations'=> 'object'
+        'information'=> 'object'
     ];
 
     /**
@@ -66,13 +63,6 @@ class User extends Authenticatable
     {
         return $this->hasOne(Addresses::class);
     }
-
-    /* Short-bio relationship */
-    public function bio(): \Illuminate\Database\Eloquent\Relations\HasOne
-    {
-        return $this->hasOne(ShortBios::class);
-    }
-
 
     /*
     * Has Role
@@ -94,5 +84,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Lesson::class, 'teacher_id');
     }
-
 }
