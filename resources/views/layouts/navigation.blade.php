@@ -7,18 +7,18 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home.index') }}">
+                    <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800"/>
                     </a>
                 </div>
 
-                {{--Home--}}
+                {{--Home--}}{{--
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('home.index')" :active="request()->routeIs('home.index')">
                         <i class="fas fa-home mr-1"></i>
                         {{ __('Home') }}
                     </x-nav-link>
-                </div>
+                </div>--}}
 
                 {{--Dashboard--}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -226,13 +226,6 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-
-            {{--Home--}}
-            <x-responsive-nav-link :href="route('home.index')" :active="request()->routeIs('home.index')">
-                <i class="fas fa-home mr-1"></i>
-                {{ __('Home') }}
-            </x-responsive-nav-link>
-
             {{--Dashboard--}}
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 <i class="fas fa-gauge mr-1"></i>

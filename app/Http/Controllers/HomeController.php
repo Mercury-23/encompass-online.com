@@ -37,9 +37,9 @@ class HomeController extends Controller
             return view('home.student', compact('user'));
         }
 
-        if ($user->hasRole('admin')) {
-            return view('home.admin', compact('user'));
-        }
+//        if ($user->hasRole('admin')) {
+//            return view('home.admin', compact('user'));
+//        }
 
         // Send to error page
 //        return view('home.error', compact('user'));
@@ -51,6 +51,7 @@ class HomeController extends Controller
      * */
     public function dashboard()
     {
+
         return view('pages.dashboard');
     }
 

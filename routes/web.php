@@ -28,14 +28,11 @@ Route::get('/', function () {
  * Authenticated Users
  * */
 Route::middleware('auth')->group(function () {
-
-
-
     /* ------------------------------------------------ */
     /*  ---------------- Basic Pages Routes ----------- */
     /*------------------------------------------------- */
-    Route::get('/home', [HomeController::class, 'index'])
-        ->name('home.index');
+//    Route::get('/home', [HomeController::class, 'index'])
+//        ->name('home.index');
 
     Route::get('/dashboard', [HomeController::class, 'dashboard'])
         ->middleware(['auth', 'verified'])
