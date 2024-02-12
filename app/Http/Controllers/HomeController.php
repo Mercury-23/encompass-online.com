@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-
     /*
      * Home Index
      * @return \Illuminate\Contracts\Support\Renderable
@@ -16,14 +15,10 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::getUser();
-       // todo - only for testing
-     /*   if ($user->id === 1) {
-            // load lessons
-//            $user->load('lessons');
-//            $user->lessons = $user->lessons()->get();
 
-            return view('home.teacher', compact('user'));
-        }*/
+        if ($user->hasRole('admin')) {
+            return view('home.admin', compact('user'));
+        }
 
         if ($user->hasRole('teacher')) {
             return view('home.teacher', compact('user'));
@@ -36,36 +31,6 @@ class HomeController extends Controller
         if ($user->hasRole('student')) {
             return view('home.student', compact('user'));
         }
-
-//        if ($user->hasRole('admin')) {
-//            return view('home.admin', compact('user'));
-//        }
-
-        // Send to error page
-//        return view('home.error', compact('user'));
-    }
-
-    /*
-     * Dashboard
-     * @return \Illuminate\Contracts\Support\Renderable
-     * */
-    public function dashboard()
-    {
-        $user = Auth::getUser();
-
-        if ($user->hasRole('teacher')) {
-            return view('home.teacher', compact('user'));
-        }
-
-        if ($user->hasRole('parent')) {
-            return view('home.parent', compact('user'));
-
-        }
-
-        if ($user->hasRole('student')) {
-            return view('home.student', compact('user'));
-        }
-//        return view('pages.dashboard');
     }
 
     /*
@@ -107,4 +72,3 @@ class HomeController extends Controller
         ]);
     }
 }
-
