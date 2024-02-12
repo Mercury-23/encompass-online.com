@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         $genders = ['male', 'female'];
         $teacherCount = $this->command->ask('How many teachers do you want to create?', 0);
         $studentCount = $this->command->ask('How many students do you want to create?', 0);
-        $admin = $this->command->choice('Do you want to create an admin user?', ['yes', 'no'], 0);
+        $admin = $this->command->choice('Do you want to create an admin user?', ['yes', 'no'], 1);
 
         for ($i = 0; $i < $teacherCount; $i++) {
             // Create teacher user with info
