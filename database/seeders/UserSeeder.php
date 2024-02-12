@@ -86,11 +86,14 @@ class UserSeeder extends Seeder
         }
         // Create admin user
         if ($admin) {
+            $f = $faker->firstName();
+            $l = $faker->lastName();
+
             $admin = User::create([
-                'name' => 'Admin',
-                'first_name' => 'Admin',
-                'last_name' => 'Admin',
-                'email' => 'admin@' . $faker->domainName(),
+                'name' => $f . ' ' . $l,
+                'first_name' =>  $f,
+                'last_name' => $l,
+                'email' => 'student_'.$faker->userName.'@' . $faker->domainName(),
                 'type' => 'admin',
                 'password' => Hash::make('password'),
             ]);
