@@ -9,13 +9,16 @@ class LessonFactory extends Factory
 {
     protected $model = Lesson::class;
 
+
+
     public function definition(): array
     {
+
         return [
-            'teacher_id' => $this->faker->numberBetween(1, 100),
-            'student_id' => $this->faker->numberBetween(1, 100),
-            'instrument_id' => $this->faker->numberBetween(1, 100),
-            'price' => $this->faker->randomFloat(2, 0, 100),
+//            'teacher_id' => $this->faker->numberBetween(1, 100),
+//            'student_id' => $this->faker->numberBetween(1, 100),
+//            'instrument_id' => $this->faker->numberBetween(1, 100),
+//            'price' => $this->faker->randomFloat(2, 0, 100),
 
 
 //        'date' => $this->faker->dateTimeBetween('-1 years', '+1 years'),

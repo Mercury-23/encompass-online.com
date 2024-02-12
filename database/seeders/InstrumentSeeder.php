@@ -14,6 +14,6 @@ class InstrumentSeeder extends Seeder
     public function run(): void
     {
         // Create 10 instruments
-        InstrumentFactory::new()->count(10)->create();
+        //InstrumentFactory::new()->count(10)->create();
     }
 }
