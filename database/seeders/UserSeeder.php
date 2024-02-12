@@ -93,7 +93,7 @@ class UserSeeder extends Seeder
                 'name' => $f . ' ' . $l,
                 'first_name' =>  $f,
                 'last_name' => $l,
-                'email' => 'student_'.$faker->userName.'@' . $faker->domainName(),
+                'email' => 'admin_'.$faker->userName.'@' . $faker->domainName(),
                 'type' => 'admin',
                 'password' => Hash::make('password'),
             ]);
