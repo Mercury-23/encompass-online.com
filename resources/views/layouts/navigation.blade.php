@@ -7,24 +7,16 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('home') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800"/>
                     </a>
                 </div>
 
-                {{--Home--}}{{--
+                {{--Home--}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('home.index')" :active="request()->routeIs('home.index')">
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         <i class="fas fa-home mr-1"></i>
                         {{ __('Home') }}
-                    </x-nav-link>
-                </div>--}}
-
-                {{--Dashboard--}}
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        <i class="fas fa-gauge mr-1"></i>
-                        {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
 
@@ -226,10 +218,11 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            {{--Dashboard--}}
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                <i class="fas fa-gauge mr-1"></i>
-                {{ __('Dashboard') }}
+
+            {{--Home--}}
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                <i class="fas fa-home mr-1"></i>
+                {{ __('Home') }}
             </x-responsive-nav-link>
 
             {{--Scheduler--}}
@@ -244,13 +237,11 @@
                 {{ __('Messages') }}
             </x-responsive-nav-link>
 
-
             {{--Rooms--}}
             <x-responsive-nav-link :href="route('room.index')" :active="request()->routeIs('room.index')">
                 <i class="fas fa-door-open mr-1"></i>
                 {{ __('Rooms') }}
             </x-responsive-nav-link>
-
 
             {{--Attendance--}}
             <x-responsive-nav-link :href="route('attendance.index')" :active="request()->routeIs('attendance.index')">
@@ -377,7 +368,6 @@
                             <i class="fas fa-user-graduate mr-1"></i>
                             {{ __('Students') }}
                         </x-responsive-nav-link>
-
                     @endif
                 @endauth
 

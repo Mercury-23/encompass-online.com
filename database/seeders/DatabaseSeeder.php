@@ -73,7 +73,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        User::factory(10)->create();
+//        User::factory(10)->create();
 
         LessonFactory::new()->count(10)->create();
 

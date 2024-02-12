@@ -34,9 +34,10 @@ Route::middleware('auth')->group(function () {
 //    Route::get('/home', [HomeController::class, 'index'])
 //        ->name('home.index');
 
-    Route::get('/dashboard', [HomeController::class, 'dashboard'])
+    Route::get('/home', [HomeController::class, 'index'])
         ->middleware(['auth', 'verified'])
-        ->name('dashboard');
+        ->name('home');
+
 
     Route::get('/room', [RoomController::class, 'index'])
         ->name('room.index');

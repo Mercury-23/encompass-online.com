@@ -10,6 +10,7 @@
             <span>Teacher</span>
         </h2>
     </x-slot>
+
     {{--App--}}
     <div class="!pt-4" id="vue-app-teacher">
 
@@ -71,9 +72,7 @@
 
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </x-app-layout>
